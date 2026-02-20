@@ -1,0 +1,101 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cji3sllgxv7xq"]
+
+[ext_resource type="FontFile" uid="uid://rqepwddfwk8w" path="res://game_assets/fonts/motion-control.bold.otf" id="1_gojgx"]
+[ext_resource type="FontFile" uid="uid://lqwafeu2v2qu" path="res://game_assets/fonts/PixeloidSans-Bold.ttf" id="1_k3qyk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3qyk"]
+content_margin_left = 0.0
+content_margin_top = 20.0
+content_margin_right = 0.0
+content_margin_bottom = 20.0
+bg_color = Color(0.243137, 0, 0, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xx76c"]
+bg_color = Color(0.360784, 0.776471, 0.929412, 1)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etpl2"]
+content_margin_left = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 150.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wuj7s"]
+content_margin_left = 50.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6rhs"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.572989, 0.572988, 0.572986, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gojgx"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.35907, 0.359069, 0.359068, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yxd4"]
+content_margin_left = 50.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.0605302, 0.0605304, 0.0605303, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[resource]
+Button/colors/font_color = Color(0.992157, 0.435294, 0.129412, 1)
+Button/colors/font_hover_color = Color(0.432667, 0.26, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.99, 0.1287, 0.1287, 1)
+Button/constants/h_separation = 0
+Button/constants/line_spacing = 0
+Button/constants/outline_size = 25
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("1_gojgx")
+Button/styles/focus = SubResource("StyleBoxFlat_k3qyk")
+Button/styles/hover = SubResource("StyleBoxFlat_k3qyk")
+Button/styles/normal = SubResource("StyleBoxFlat_k3qyk")
+Button/styles/pressed = SubResource("StyleBoxFlat_k3qyk")
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 25
+Label/constants/shadow_offset_x = -10
+Label/constants/shadow_offset_y = 20
+Label/constants/shadow_outline_size = 25
+Label/font_sizes/font_size = 60
+Label/fonts/font = ExtResource("1_k3qyk")
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = -50
+MarginContainer/constants/margin_right = 0
+Panel/styles/panel = SubResource("StyleBoxFlat_xx76c")
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_etpl2")
+TextEdit/font_sizes/font_size = 50
+TextEdit/fonts/font = ExtResource("1_gojgx")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_wuj7s")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_v6rhs")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_gojgx")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_8yxd4")

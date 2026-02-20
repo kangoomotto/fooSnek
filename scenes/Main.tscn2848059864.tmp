@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://u2ido474y8mh"]
+
+[ext_resource type="Script" uid="uid://cctjfvhlvs7ti" path="res://scripts/main.gd" id="1_6r6rf"]
+[ext_resource type="Script" uid="uid://473i43p6rg7i" path="res://scripts/audio_brain.gd" id="2_nxtc6"]
+[ext_resource type="Script" uid="uid://d2aoea8v8dhbn" path="res://scripts/game_manager.gd" id="2_uto3c"]
+[ext_resource type="Script" uid="uid://d104hvrlv5e7t" path="res://scripts/board_manager.gd" id="3_ue88o"]
+[ext_resource type="PackedScene" uid="uid://cjrvk6227nqjp" path="res://game_assets/tscns/stadium_board.tscn" id="5_lhr70"]
+[ext_resource type="PackedScene" uid="uid://0a47turok56b" path="res://game_hud/scenes/GameHud.tscn" id="8_kivnl"]
+[ext_resource type="PackedScene" uid="uid://d14tvpl4sar43" path="res://3d_dice/DiceBox.tscn" id="11_0jnqq"]
+
+[sub_resource type="Environment" id="Environment_nxtc6"]
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 5.0
+glow_blend_mode = 1
+
+[node name="MAIN" type="Node2D"]
+z_index = 1
+z_as_relative = false
+script = ExtResource("1_6r6rf")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nxtc6")
+
+[node name="GameManager" type="Node2D" parent="."]
+position = Vector2(3, 0)
+script = ExtResource("2_uto3c")
+DEBUG_MODE = true
+debug_score_p1 = 3
+debug_score_p2 = 5
+debug_force_dice = 12
+
+[node name="BoardManager" type="Node2D" parent="."]
+script = ExtResource("3_ue88o")
+
+[node name="AudioBrain" type="Node" parent="."]
+script = ExtResource("2_nxtc6")
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="AudioBrain"]
+
+[node name="AmbiencePlayer" type="AudioStreamPlayer2D" parent="AudioBrain"]
+
+[node name="CommentaryPlayer" type="AudioStreamPlayer2D" parent="AudioBrain"]
+
+[node name="BoardLayout" parent="." instance=ExtResource("5_lhr70")]
+z_index = 1
+z_as_relative = false
+
+[node name="StepTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="GameHud" parent="." instance=ExtResource("8_kivnl")]
+visible = false
+
+[node name="DiceViewportContainer" type="SubViewportContainer" parent="."]
+z_index = 99
+z_as_relative = false
+offset_right = 1080.0
+offset_bottom = 1920.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="DiceViewport" type="SubViewport" parent="DiceViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_scale = 1.0
+size = Vector2i(1080, 1920)
+render_target_update_mode = 4
+
+[node name="Dice_Box" parent="DiceViewportContainer/DiceViewport" instance=ExtResource("11_0jnqq")]

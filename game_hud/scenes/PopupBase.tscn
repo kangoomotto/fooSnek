@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3k4qbs0da8of"]
+
+[ext_resource type="Texture2D" uid="uid://ddnnqjew4ns3a" path="res://game_assets/images/popup_cards/yellow_01.png" id="1_sccpj"]
+[ext_resource type="Script" uid="uid://betxjxeipfubr" path="res://game_hud/popup_base.gd" id="2_sccpj"]
+[ext_resource type="Material" uid="uid://u0t0r4kfsuaw" path="res://game_assets/Particles/blast_yellow.tres" id="4_fds5b"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k3187"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="PopupBase" type="TextureRect"]
+offset_left = -225.0
+offset_top = -225.0
+offset_right = 225.0
+offset_bottom = 225.0
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(225, 225)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_sccpj")
+expand_mode = 5
+script = ExtResource("2_sccpj")
+
+[node name="PopupParticles" type="GPUParticles2D" parent="."]
+z_index = -1
+material = SubResource("CanvasItemMaterial_k3187")
+position = Vector2(227, 227)
+amount = 500
+visibility_rect = Rect2(-70, -70, 150, 500)
+local_coords = true
+process_material = ExtResource("4_fds5b")

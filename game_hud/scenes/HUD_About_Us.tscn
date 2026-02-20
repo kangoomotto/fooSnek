@@ -1,0 +1,178 @@
+[gd_scene load_steps=7 format=3 uid="uid://bln360iwxy8vy"]
+
+[ext_resource type="Script" uid="uid://dr0ypaun2upqq" path="res://game_hud/hud_about_us.gd" id="1_yyta6"]
+[ext_resource type="FontFile" uid="uid://lqwafeu2v2qu" path="res://game_assets/fonts/PixeloidSans-Bold.ttf" id="2_b23vp"]
+[ext_resource type="Theme" uid="uid://cji3sllgxv7xq" path="res://themes/pixel_font.tres" id="3_vccmo"]
+[ext_resource type="Texture2D" uid="uid://ca121ix0tltot" path="res://game_assets/images/_system/menu_bg.png" id="4_b23vp"]
+[ext_resource type="Theme" uid="uid://bt11ooea31t6o" path="res://themes/basic_button.tres" id="4_vccmo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b23vp"]
+texture = ExtResource("4_b23vp")
+
+[node name="HUD_About_Us" type="Control"]
+custom_minimum_size = Vector2(1000, 1400)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_yyta6")
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuBackgound" type="Panel" parent="."]
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 1920.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_b23vp")
+
+[node name="OptionsTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -410.0
+offset_top = 100.0
+offset_right = 410.0
+offset_bottom = 174.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/shadow_offset_x = -10
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 25
+theme_override_constants/shadow_outline_size = 25
+theme_override_fonts/font = ExtResource("2_b23vp")
+theme_override_font_sizes/font_size = 60
+text = "Nosotros"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -610.0
+offset_right = 340.0
+offset_bottom = 542.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Grid" type="GridContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(600, 1000)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="MC1" type="MarginContainer" parent="MarginContainer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="btn_option_1" type="Button" parent="MarginContainer/Grid/MC1"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+theme = ExtResource("4_vccmo")
+disabled = true
+text = "Discord"
+
+[node name="MC2" type="MarginContainer" parent="MarginContainer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="btn_option_2" type="Button" parent="MarginContainer/Grid/MC2"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+theme = ExtResource("4_vccmo")
+disabled = true
+text = "X.com"
+
+[node name="MC3" type="MarginContainer" parent="MarginContainer/Grid"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="btn_option_3" type="Button" parent="MarginContainer/Grid/MC3"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+theme = ExtResource("4_vccmo")
+disabled = true
+text = "www.gyraff.com"
+
+[node name="MC4" type="MarginContainer" parent="MarginContainer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = -40
+theme_override_constants/margin_right = -40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Grid"]
+clip_contents = false
+custom_minimum_size = Vector2(700, 700)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_vccmo")
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="MC5" type="MarginContainer" parent="MarginContainer/Grid/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/Grid/ScrollContainer/MC5"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "
+Por favor, deja un comentario:
+
+Para incorporar mejoras en las actualizaciones y nuevos desarrollos.
+
+¡Gracias!"
+wrap_mode = 1
+
+[node name="btn_close_submit" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.171
+anchor_top = 0.781
+anchor_right = 0.819
+anchor_bottom = 0.834
+offset_left = 0.319992
+offset_top = 23.48
+offset_right = 0.479919
+offset_bottom = 71.7198
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_vccmo")
+text = "cerrar & enviar"

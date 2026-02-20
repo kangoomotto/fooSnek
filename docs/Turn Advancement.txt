@@ -1,0 +1,13 @@
+_advance_turn_flow(source)
+│
+├─ if current_state == OVERSHOOT → return
+├─ if waiting_for_blocking_popup → return
+│
+├─ if last_slot_result.extra_turn:
+│      → same player, state = AWAITING_ROLL
+│
+└─ else:
+       current_turn = 1 - current_turn
+       current_chip = chips[current_turn]
+       _highlight_active_player()
+       _change_state(AWAITING_ROLL)

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource path="res://materials/shadow_catcher.gdshader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource("1")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_opacity = 0.6
+shader_parameter/shadow_max_opacity = 0.8

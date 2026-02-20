@@ -1,0 +1,273 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjrvk6227nqjp"]
+
+[ext_resource type="Texture2D" uid="uid://dgncu0aju0jbo" path="res://game_assets/images/boards/board_stadium.png" id="1_x3vvl"]
+[ext_resource type="PackedScene" uid="uid://co5a54ikiyngv" path="res://scenes/BoardBox.tscn" id="2_cvfby"]
+[ext_resource type="PackedScene" uid="uid://c0tlxtniye0h6" path="res://game_assets/tscns/player_chip_pink.tscn" id="2_y8ho8"]
+[ext_resource type="Script" uid="uid://c74qtgctvk1yu" path="res://scripts/board_box.gd" id="3_cvfby"]
+[ext_resource type="PackedScene" uid="uid://deijxm15tosmi" path="res://game_assets/tscns/player_chip_cyan.tscn" id="4_sek8t"]
+
+[node name="BoardLayout" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(540, 960)
+texture = ExtResource("1_x3vvl")
+
+[node name="Box_00" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(535, 1674)
+scale = Vector2(0.991844, 1)
+
+[node name="Box_01" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(248, 1539)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_02" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(446, 1507)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_03" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(644, 1539)
+script = ExtResource("3_cvfby")
+slot_type = "ladder"
+target_index = 16
+metadata/type = "ladder"
+metadata/extra_info = {
+"move_to": 16
+}
+metadata/trigger_quiz = false
+
+[node name="Box_04" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(830, 1511)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_05" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(828, 1351)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_06" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(643.592, 1318)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_07" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(446, 1350)
+script = ExtResource("3_cvfby")
+slot_type = "ladder"
+target_index = 14
+metadata/type = "ladder"
+metadata/extra_info = {
+"move_to": 14
+}
+metadata/trigger_quiz = false
+
+[node name="Box_08" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(252, 1318)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_09" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(248, 1144)
+script = ExtResource("3_cvfby")
+slot_type = "snake"
+target_index = 2
+metadata/type = "snake"
+metadata/extra_info = {
+"move_to": 2
+}
+metadata/trigger_quiz = false
+
+[node name="Box_10" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(446, 1112)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_11" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(643.592, 1144)
+script = ExtResource("3_cvfby")
+slot_type = "ladder"
+target_index = 18
+metadata/type = "ladder"
+metadata/extra_info = {
+"move_to": 18
+}
+metadata/trigger_quiz = false
+
+[node name="Box_12" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(830, 1112)
+script = ExtResource("3_cvfby")
+slot_type = "yellow"
+metadata/type = "yellow"
+metadata/extra_info = {}
+metadata/trigger_quiz = true
+
+[node name="Box_13" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(826, 957)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_14" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(643.592, 925)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_15" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(446, 957)
+script = ExtResource("3_cvfby")
+slot_type = "kick"
+metadata/type = "kick"
+metadata/extra_info = {}
+metadata/trigger_quiz = true
+
+[node name="Box_16" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(252, 925)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_17" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(248, 762)
+script = ExtResource("3_cvfby")
+slot_type = "red"
+metadata/type = "red"
+metadata/extra_info = {}
+metadata/trigger_quiz = true
+
+[node name="Box_18" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(446, 730)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_19" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(643.592, 762)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_20" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(830, 730)
+script = ExtResource("3_cvfby")
+slot_type = "snake"
+target_index = 5
+metadata/type = "snake"
+metadata/extra_info = {
+"move_to": 5
+}
+metadata/trigger_quiz = false
+
+[node name="Box_21" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(826, 585)
+script = ExtResource("3_cvfby")
+slot_type = "corner"
+metadata/type = "corner"
+metadata/extra_info = {}
+metadata/trigger_quiz = true
+
+[node name="Box_22" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(643.592, 553)
+script = ExtResource("3_cvfby")
+slot_type = "snake"
+target_index = 6
+metadata/type = "snake"
+metadata/extra_info = {
+"move_to": 6
+}
+metadata/trigger_quiz = false
+
+[node name="Box_23" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(446, 585)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_24" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(252, 553)
+script = ExtResource("3_cvfby")
+slot_type = "corner"
+metadata/type = "corner"
+metadata/extra_info = {}
+metadata/trigger_quiz = true
+
+[node name="Box_25" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(539.592, 428)
+script = ExtResource("3_cvfby")
+slot_type = "goal"
+metadata/type = "goal"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_26" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(252, 553)
+script = ExtResource("3_cvfby")
+slot_type = "corner"
+metadata/type = "corner"
+metadata/extra_info = {}
+metadata/trigger_quiz = true
+
+[node name="Box_27" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(446, 585)
+script = ExtResource("3_cvfby")
+metadata/type = "stay"
+metadata/extra_info = {}
+metadata/trigger_quiz = false
+
+[node name="Box_28" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(643.592, 553)
+script = ExtResource("3_cvfby")
+slot_type = "snake"
+target_index = 6
+metadata/type = "snake"
+metadata/extra_info = {
+"move_to": 6
+}
+metadata/trigger_quiz = false
+
+[node name="Box_29" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(826, 585)
+script = ExtResource("3_cvfby")
+slot_type = "corner"
+metadata/type = "corner"
+metadata/extra_info = {}
+metadata/trigger_quiz = true
+
+[node name="Box_30" parent="." instance=ExtResource("2_cvfby")]
+position = Vector2(830, 730)
+script = ExtResource("3_cvfby")
+slot_type = "snake"
+target_index = 5
+metadata/type = "snake"
+metadata/extra_info = {
+"move_to": 5
+}
+metadata/trigger_quiz = false
+
+[node name="playerChipCyan" parent="." instance=ExtResource("4_sek8t")]
+position = Vector2(555, 1616)
+
+[node name="playerChipPink" parent="." instance=ExtResource("2_y8ho8")]
+position = Vector2(555, 1616)

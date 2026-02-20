@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://ybgx6eftiul3"]
+
+[ext_resource type="Script" uid="uid://dnn105f2ejos8" path="res://game_hud/hud_timer.gd" id="1_c24bj"]
+[ext_resource type="FontFile" uid="uid://do3s6h3n5dd43" path="res://game_assets/fonts/Soccer Scoreboard.otf" id="2_pp1gc"]
+
+[node name="HUD_Timer" type="Control"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 80.0
+script = ExtResource("1_c24bj")
+
+[node name="MatchTimer" type="Timer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+offset_right = 235.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("2_pp1gc")
+theme_override_font_sizes/font_size = 70
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 0

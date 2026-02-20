@@ -1,0 +1,16 @@
+#res://scripts/game_state.gd
+
+enum GameState {
+	START_MENU = 0,
+	AWAITING_ROLL = 1,
+	ROLLING = 2,
+	MOVING_CHIP = 3,
+	RESOLVING_SLOT = 4,
+	QUIZ = 5,
+	POPUP = 6,
+	SHOWING_HALFTIME = 7,
+	SHOWING_WINNER = 8,
+	OVERSHOOT = 9, 
+	GAME_PAUSED = 10,
+	WAITING_AFTER_WINNER = 12
+}

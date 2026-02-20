@@ -1,0 +1,909 @@
+{
+	"players": [
+  {
+    "id": "Q001",
+    "question": "Who is the all-time top scorer in World Cup history?",
+    "answers": ["Miroslav Klose","Pelé","Cristiano Ronaldo","Messi","Gerd Müller","Just Fontaine"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q002",
+    "question": "Which player has won the most Ballon d'Or awards?",
+    "answers": ["Lionel Messi","Cristiano Ronaldo","Michel Platini","Johan Cruyff","Marco van Basten","Zinedine Zidane"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q003",
+    "question": "Who is known as 'The Phenomenon'?",
+    "answers": ["Ronaldo Nazário","Ronaldinho","Romário","Neymar","Pelé","Kaká"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q004",
+    "question": "Who holds the record for most goals in a single World Cup?",
+    "answers": ["Just Fontaine","Miroslav Klose","Pelé","Ronaldo Nazário","Kaká","Messi"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q005",
+    "question": "Which Brazilian player is known as 'O Rei'?",
+    "answers": ["Pelé","Ronaldo Nazário","Ronaldinho","Kaká","Neymar","Romário"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q006",
+    "question": "Who scored the 'Hand of God' goal?",
+    "answers": ["Maradona","Pelé","Messi","Ronaldo","Ronaldinho","Zidane"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q007",
+    "question": "Which player has the most Champions League titles?",
+    "answers": ["Cristiano Ronaldo","Piqué","Iniesta","Messi","Xavi","Benzema"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q008",
+    "question": "Who is the top scorer for FC Barcelona?",
+    "answers": ["Messi","Suárez","Coutinho","Neymar","Ronaldinho","Pelé"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q009",
+    "question": "Which Italian player won the Ballon d'Or in 2006?",
+    "answers": ["Fabio Cannavaro","Del Piero","Totti","Pirlo","Buffon","Gattuso"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q010",
+    "question": "Which player has the most appearances in World Cups?",
+    "answers": ["Lothar Matthäus","Messi","Pelé","Cristiano Ronaldo","Buffon","Maradona"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q011",
+    "question": "Which French player won the Ballon d'Or in 1998?",
+    "answers": ["Zinedine Zidane","Thierry Henry","Platini","Kylian Mbappé","Griezmann","Ribéry"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q012",
+    "question": "Who is the most famous African player?",
+    "answers": ["Samuel Eto'o","Didier Drogba","Mohamed Salah","Yaya Touré","Abedi Pelé","George Weah"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q013",
+    "question": "Which player holds the record for most Premier League goals?",
+    "answers": ["Alan Shearer","Salah","Sterling","Harry Kane","Rooney","Agüero"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q014",
+    "question": "Which player has the most assists in history?",
+    "answers": ["Messi","Xavi","Iniesta","Pelé","Ronaldinho","Cristiano Ronaldo"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q015",
+    "question": "Which Argentine forward played for Napoli and Barcelona?",
+    "answers": ["Maradona","Messi","Higuaín","Aguero","Tevez","Di María"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q016",
+    "question": "Who is the top scorer for the Argentina national team?",
+    "answers": ["Messi","Batistuta","Maradona","Tevez","Agüero","Higuaín"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q017",
+    "question": "Which Portuguese player won the Ballon d'Or in 2016?",
+    "answers": ["Cristiano Ronaldo","Eusebio","Figo","Deco","Ronaldo Nazário","Pepe"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q018",
+    "question": "Who is the fastest player in the world?",
+    "answers": ["Kylian Mbappé","Ronaldo","Salah","Cristiano Ronaldo","Sterling","Messi"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q019",
+    "question": "Which Japanese player shone in the Premier League?",
+    "answers": ["Shinji Kagawa","Hasebe","Honda","Okazaki","Kawashima","Endo"],
+    "category": "players",
+    "category_label": "Players"
+  },
+  {
+    "id": "Q020",
+    "question": "Who is the goalkeeper with the most saves in history?",
+    "answers": ["Buffon","Casillas","Neuer","Courtois","Kahn","De Gea"],
+    "category": "players",
+    "category_label": "Players"
+  }
+],
+
+"world_cup": [
+  {
+    "id": "Q001",
+    "question": "Which country has won the most World Cups?",
+    "answers": ["Brazil","Germany","Italy","France","Argentina","Uruguay"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q002",
+    "question": "In which year was the first World Cup held?",
+    "answers": ["1930","1934","1928","1942","1950","1910"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q003",
+    "question": "Which team won the 2010 World Cup?",
+    "answers": ["Spain","Netherlands","Germany","Brazil","France","Argentina"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q004",
+    "question": "Who scored the winning goal in the 2014 World Cup?",
+    "answers": ["Mario Götze","Neymar","Messi","James Rodríguez","Müller","Higuaín"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q005",
+    "question": "Which country hosted the 2002 World Cup?",
+    "answers": ["South Korea","Japan","Brazil","Germany","France","South Africa"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q006",
+    "question": "Which team won the first World Cup?",
+    "answers": ["Uruguay","Argentina","Brazil","Italy","Germany","France"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q007",
+    "question": "Who was the top scorer of the 2018 World Cup?",
+    "answers": ["Harry Kane","Mbappé","Messi","Ronaldo","Griezmann","Lukaku"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q008",
+    "question": "Which country hosted the 2018 World Cup?",
+    "answers": ["Russia","Brazil","Germany","South Africa","Japan","France"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q009",
+    "question": "Who won the Golden Ball in the 2014 World Cup?",
+    "answers": ["Lionel Messi","Neymar","Müller","James Rodríguez","Klose","Ronaldo"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q010",
+    "question": "Which team reached the final of the 2006 World Cup?",
+    "answers": ["Italy","France","Brazil","Germany","Portugal","Argentina"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q011",
+    "question": "Who was the penalty hero in the 2006 final?",
+    "answers": ["Fabio Grosso","Zidane","Buffon","Cafu","Ronaldo","Henry"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q012",
+    "question": "Which country hosted the 1998 World Cup?",
+    "answers": ["France","Brazil","Italy","Germany","Argentina","USA"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q013",
+    "question": "Who won the 1994 World Cup?",
+    "answers": ["Brazil","Italy","Germany","Argentina","France","Uruguay"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q014",
+    "question": "Which team surprised by reaching the semifinals in 2002?",
+    "answers": ["South Korea","Turkey","Senegal","Japan","Brazil","Germany"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q015",
+    "question": "Who was the top scorer of the 2006 World Cup?",
+    "answers": ["Miroslav Klose","Ronaldo","Henry","Zidane","Ronaldinho","Messi"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q016",
+    "question": "Which country won the 1986 World Cup?",
+    "answers": ["Argentina","Germany","Brazil","Italy","France","Uruguay"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q017",
+    "question": "Who scored the famous 'Hand of God' goal in 1986?",
+    "answers": ["Maradona","Pelé","Zico","Baggio","Beckenbauer","Kempes"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q018",
+    "question": "Which country hosted the 1978 World Cup?",
+    "answers": ["Argentina","Brazil","Italy","Germany","Mexico","France"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q019",
+    "question": "Who won the 1974 World Cup?",
+    "answers": ["Germany","Brazil","Italy","Argentina","Netherlands","Uruguay"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  },
+  {
+    "id": "Q020",
+    "question": "Which country reached the final of the 1990 World Cup?",
+    "answers": ["Germany","Argentina","Brazil","Italy","England","France"],
+    "category": "world_cup",
+    "category_label": "World Cups"
+  }
+],
+
+"leagues": [
+  {
+    "id": "Q001",
+    "question": "Which league is known as 'La Liga'?",
+    "answers": ["Spain","Italy","England","Germany","France","Portugal"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q002",
+    "question": "Which club has won the most Premier League titles?",
+    "answers": ["Manchester United","Chelsea","Liverpool","Arsenal","Manchester City","Tottenham"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q003",
+    "question": "Which league is famous for the Boca vs. River Classic?",
+    "answers": ["Argentina","Brazil","Mexico","Chile","Colombia","Uruguay"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q004",
+    "question": "Which league does Cristiano Ronaldo currently play in?",
+    "answers": ["Saudi Arabia","England","Italy","Spain","France","Portugal"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q005",
+    "question": "Which league holds the record for most goals in a season?",
+    "answers": ["Bundesliga","La Liga","Premier League","Serie A","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q006",
+    "question": "Which league is famous for the Milan derbies?",
+    "answers": ["Serie A","La Liga","Premier League","Bundesliga","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q007",
+    "question": "Which league had the first professional football match?",
+    "answers": ["England","Italy","Spain","Germany","Scotland","France"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q008",
+    "question": "Which league is known for the 'Brilliant Serie A' of the 90s?",
+    "answers": ["Italy","Spain","England","France","Germany","Portugal"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q009",
+    "question": "Which European league is famous for its defensive style?",
+    "answers": ["Serie A","Bundesliga","La Liga","Premier League","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q010",
+    "question": "Which league is known for the Real Madrid vs. Barça Classic?",
+    "answers": ["La Liga","Premier League","Serie A","Bundesliga","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q011",
+    "question": "Which league is famous for spectacular free-kick goals?",
+    "answers": ["La Liga","Premier League","Serie A","Bundesliga","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q012",
+    "question": "Which league has the 'Old Firm' rivalry?",
+    "answers": ["Scotland","England","Ireland","Wales","Spain","Italy"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q013",
+    "question": "Which league has the highest average attendance per match?",
+    "answers": ["Bundesliga","Premier League","La Liga","Serie A","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q014",
+    "question": "Which league is known for Ajax's youth academy?",
+    "answers": ["Eredivisie","La Liga","Premier League","Serie A","Bundesliga","Ligue 1"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q015",
+    "question": "Which league had Johan Cruyff as player and coach?",
+    "answers": ["La Liga","Eredivisie","Serie A","Premier League","Bundesliga","Ligue 1"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q016",
+    "question": "Which league is famous for Italian 'Calcio'?",
+    "answers": ["Serie A","La Liga","Premier League","Bundesliga","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q017",
+    "question": "Which league holds the record for most goals by a player in a season?",
+    "answers": ["Bundesliga","La Liga","Premier League","Serie A","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q018",
+    "question": "Which league is known for recent multimillion-dollar transfers?",
+    "answers": ["Premier League","La Liga","Serie A","Bundesliga","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q019",
+    "question": "Which league had the famous Milan-Inter Classic?",
+    "answers": ["Serie A","La Liga","Premier League","Bundesliga","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  },
+  {
+    "id": "Q020",
+    "question": "Which league is known for exciting cup finals?",
+    "answers": ["La Liga","Premier League","Serie A","Bundesliga","Ligue 1","MLS"],
+    "category": "leagues",
+    "category_label": "Leagues"
+  }
+],
+
+"coaches": [
+  {
+    "id": "Q001",
+    "question": "Who is the coach with the most UEFA Champions League titles?",
+    "answers": ["Carlo Ancelotti","Zinedine Zidane","Pep Guardiola","Alex Ferguson","José Mourinho","Vicente del Bosque"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q002",
+    "question": "Who coached Spain to victory in the 2010 World Cup?",
+    "answers": ["Vicente del Bosque","Luis Aragonés","Julen Lopetegui","Luis Enrique","José Antonio Camacho","Rafael Benítez"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q003",
+    "question": "Which coach is famous for his time at Arsenal?",
+    "answers": ["Arsène Wenger","Alex Ferguson","José Mourinho","Jurgen Klopp","Marcelo Bielsa","Frank Rijkaard"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q004",
+    "question": "Who has won the most league titles in England?",
+    "answers": ["Alex Ferguson","Pep Guardiola","José Mourinho","Arsène Wenger","Carlo Ancelotti","Vicente del Bosque"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q005",
+    "question": "Which coach is known as 'The Special One'?",
+    "answers": ["José Mourinho","Pep Guardiola","Alex Ferguson","Carlo Ancelotti","Marcelo Bielsa","Jurgen Klopp"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q006",
+    "question": "Which coach revolutionized tiki-taka in Spain?",
+    "answers": ["Pep Guardiola","Vicente del Bosque","Luis Enrique","Johan Cruyff","Marcelo Bielsa","José Mourinho"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q007",
+    "question": "Who coached Real Madrid during the 'Décima' Champions?",
+    "answers": ["Carlo Ancelotti","Zinedine Zidane","José Mourinho","Vicente del Bosque","Pep Guardiola","Luis Enrique"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q008",
+    "question": "Which coach is famous for offensive football in Chile?",
+    "answers": ["Marcelo Bielsa","Jorge Sampaoli","Alex Ferguson","José Mourinho","Pep Guardiola","Arsène Wenger"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q009",
+    "question": "Which coach won both the Euro and the World Cup with Spain?",
+    "answers": ["Vicente del Bosque","Luis Aragonés","Pep Guardiola","Johan Cruyff","José Mourinho","Marcelo Bielsa"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q010",
+    "question": "Who is the most successful coach in the Bundesliga?",
+    "answers": ["Ottmar Hitzfeld","Jupp Heynckes","Pep Guardiola","Jürgen Klopp","Carlo Ancelotti","Alex Ferguson"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q011",
+    "question": "Which Argentine coach is famous for his offensive style?",
+    "answers": ["Marcelo Bielsa","Carlos Bianchi","Jorge Sampaoli","César Luis Menotti","Alex Ferguson","José Mourinho"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q012",
+    "question": "Who coached Manchester United for 26 years?",
+    "answers": ["Alex Ferguson","José Mourinho","Pep Guardiola","Arsène Wenger","Carlo Ancelotti","Vicente del Bosque"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q013",
+    "question": "Which Spanish coach won the Champions League with two clubs?",
+    "answers": ["José Mourinho","Pep Guardiola","Vicente del Bosque","Luis Enrique","Jorge Sampaoli","Carlo Ancelotti"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q014",
+    "question": "Which English coach revolutionized football in his country?",
+    "answers": ["Alex Ferguson","Arsène Wenger","José Mourinho","Pep Guardiola","Carlo Ancelotti","Marcelo Bielsa"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q015",
+    "question": "Which Portuguese coach won the Champions League with Porto?",
+    "answers": ["José Mourinho","Carlo Ancelotti","Pep Guardiola","Vicente del Bosque","Alex Ferguson","Jürgen Klopp"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q016",
+    "question": "Who led Liverpool to their sixth Champions League title?",
+    "answers": ["Jürgen Klopp","Carlo Ancelotti","José Mourinho","Pep Guardiola","Alex Ferguson","Marcelo Bielsa"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q017",
+    "question": "Which Barça coach promoted the 'La Masía' youth academy?",
+    "answers": ["Johan Cruyff","Pep Guardiola","Luis Enrique","Marcelo Bielsa","Luis Aragonés","José Mourinho"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q018",
+    "question": "Who coached Chelsea during the Abramovich era?",
+    "answers": ["José Mourinho","Carlo Ancelotti","Pep Guardiola","Guus Hiddink","Alex Ferguson","Arsène Wenger"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q019",
+    "question": "Which coach won the Copa América with Chile in 2015?",
+    "answers": ["Jorge Sampaoli","Marcelo Bielsa","Alex Ferguson","José Mourinho","Pep Guardiola","Luis Enrique"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  },
+  {
+    "id": "Q020",
+    "question": "Who led France to win the 2018 World Cup?",
+    "answers": ["Didier Deschamps","Zinedine Zidane","Pep Guardiola","José Mourinho","Alex Ferguson","Marcelo Bielsa"],
+    "category": "coaches",
+    "category_label": "Coaches"
+  }
+],
+
+"soccer_rules": [
+  {
+    "id": "Q001",
+    "question": "How many players per team must be on the field?",
+    "answers": ["11","10","12","9","13","8"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q002",
+    "question": "What does a red card mean?",
+    "answers": ["Immediate expulsion","Warning","Minor foul","Restart","Penalty","Offside"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q003",
+    "question": "How long does a professional football match last?",
+    "answers": ["90 minutes","80 minutes","60 minutes","100 minutes","75 minutes","120 minutes"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q004",
+    "question": "How many main referees are there in a match?",
+    "answers": ["1","2","3","4","5","6"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q005",
+    "question": "What does offside mean?",
+    "answers": ["Advanced position","Foul","Goal","Penalty","Free kick","Corner"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q006",
+    "question": "How long is a professional football field?",
+    "answers": ["100-110 m","90-95 m","120-130 m","80-85 m","70-75 m","60-65 m"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q007",
+    "question": "How many substitutions are officially allowed per team?",
+    "answers": ["5","3","7","2","4","6"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q008",
+    "question": "What is a penalty kick?",
+    "answers": ["Shot from 11m","Free kick","Corner","Throw-in","Indirect free kick","Goal"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q009",
+    "question": "What happens if the ball completely crosses the goal line?",
+    "answers": ["Goal","Free kick","Corner","Throw-in","Foul","None"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q010",
+    "question": "What is a corner kick?",
+    "answers": ["Corner","Free kick","Penalty","Foul","Indirect kicks","Goal"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q011",
+    "question": "What does a yellow card mean?",
+    "answers": ["Warning","Expulsion","Minor foul","Penalty","Goal","None"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q012",
+    "question": "What is an indirect free kick?",
+    "answers": ["Must touch another player","Direct shot","Corner","Penalty","Goal","Throw-in"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q013",
+    "question": "What is a direct free kick?",
+    "answers": ["Can go directly to goal","Must touch another player","Corner","Penalty","Goal","Throw-in"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q014",
+    "question": "What is a foul?",
+    "answers": ["Illegal play","Goal","Corner","Penalty","Free kick","Throw-in"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q015",
+    "question": "What is a ball in play?",
+    "answers": ["Has not crossed the line","Goal","Offside","Corner","Throw-in","Penalty"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q016",
+    "question": "What is a ball out of play?",
+    "answers": ["Crossed the line","Goal","Corner","Throw-in","Penalty","Foul"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q017",
+    "question": "What is a goal kick?",
+    "answers": ["From goal","Corner","Free kick","Penalty","Foul","Goal"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q018",
+    "question": "What is an indirect corner kick?",
+    "answers": ["Normal corner","Direct shot","Penalty","Foul","Goal","Throw-in"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q019",
+    "question": "What happens if the goalkeeper touches the ball outside the area?",
+    "answers": ["Foul","Goal","Corner","Throw-in","Penalty","None"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  },
+  {
+    "id": "Q020",
+    "question": "What happens if a player misses a penalty?",
+    "answers": ["Saved by goalkeeper","Goal","Corner","Foul","Throw-in","None"],
+    "category": "soccer_rules",
+    "category_label": "Rules"
+  }
+],
+
+"aficionados": [
+  {
+    "id": "Q001",
+    "question": "What are the most passionate football fans called?",
+    "answers": ["Ultras","Supporters","Fans","Forofos","Sympathizers","Members"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q002",
+    "question": "Which country is famous for drums and chants in stadiums?",
+    "answers": ["Argentina","Brazil","Mexico","Chile","Italy","Spain"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q003",
+    "question": "What is a barra brava?",
+    "answers": ["Radical supporters group","Store","Team","Type of penalty","Stadium","Star player"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q004",
+    "question": "What chant is typical among Argentine fans?",
+    "answers": ["Dale Boca","Olé Olé","Vamos River","Forza Italia","Hala Madrid","Allez PSG"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q005",
+    "question": "What does chanting 'Olé' in a stadium mean?",
+    "answers": ["Celebrate a play","Disrespect","Cheer a goal","Request substitution","Take a corner","Nothing"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q006",
+    "question": "What are tifos?",
+    "answers": ["Signs and banners","Balls","Goals","Free kicks","Fouls","Training"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q007",
+    "question": "What does the chant 'Vamos equipo!' mean?",
+    "answers": ["Encouragement","Insult","Goal","Corner","Foul","Free kick"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q008",
+    "question": "What are flares in a stadium?",
+    "answers": ["Smoke lights","Balls","Goals","Free kicks","Fouls","Entries"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q009",
+    "question": "What is a stadium full of fans called?",
+    "answers": ["Intense atmosphere","Empty field","Store","Office","Training","Goal"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q010",
+    "question": "What does a supporters’ group do during a match?",
+    "answers": ["Cheer the team","Foul","Corner","Goal","Free kick","Goalkeeper"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q011",
+    "question": "What are drums in a stadium?",
+    "answers": ["Percussion instruments","Balls","Goal","Free kicks","Corner","Training"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q012",
+    "question": "What is a mass chant?",
+    "answers": ["Everyone sings together","Player sings alone","Referee sings","Ball sings","Goal sings","Nothing"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q013",
+    "question": "What does 'Forza!' mean in the stadium?",
+    "answers": ["Encouragement","Insult","Foul","Free kick","Corner","Goal"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q014",
+    "question": "What do fans do with flags?",
+    "answers": ["Cheer visually","Hit the ball","Disrespect the referee","Train","Corner","Nothing"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q015",
+    "question": "What is a wave in the stadium?",
+    "answers": ["Everyone stands up","Goal","Free kick","Corner","Foul","Nothing"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q016",
+    "question": "What does singing the anthem before a match mean?",
+    "answers": ["Respect the team","Insult","Corner","Foul","Goal","Nothing"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q017",
+    "question": "What are offensive chants?",
+    "answers": ["Mocking the rival","Encourage own team","Goal","Corner","Foul","Nothing"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q018",
+    "question": "What does organized fan base mean?",
+    "answers": ["Coordinated fans","Goal","Corner","Foul","Free kick","Nothing"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q019",
+    "question": "What are goal chants?",
+    "answers": ["Celebration after a goal","Corner","Foul","Ball","Free kick","Nothing"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q020",
+    "question": "What is a farewell chant?",
+    "answers": ["End of the match","Start of the match","Corner","Foul","Free kick","Goal"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q021",
+    "question": "What is the most famous Boca Juniors fan group called?",
+    "answers": ["La 12","Ultras","Barra Brava","Fan Club","Supporters","Members"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q022",
+    "question": "Which instrument do fans use to cheer in Argentina?",
+    "answers": ["Drum","Trumpet","Guitar","Cymbals","Bell","Tambourine"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q023",
+    "question": "What is the most famous chant of Spanish fans?",
+    "answers": ["Olé Olé Olé","Vamos España","Cielito Lindo","Hala Madrid","España Roja","Somos Uno"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q024",
+    "question": "Which color identifies Liverpool fans?",
+    "answers": ["Red","White","Blue","Yellow","Green","Black"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q025",
+    "question": "What is the most iconic stadium mascot?",
+    "answers": ["Lion","Cat","Eagle","Dog","Tiger","Monkey"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q026",
+    "question": "What gesture is typical among fans after a goal?",
+    "answers": ["Jumps","Ovation","Applause","Hugs","Boos","Shouts"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  },
+  {
+    "id": "Q027",
+    "question": "What are the banners fans hang called?",
+    "answers": ["Flags","Posters","Standards","Signs","Flags","Flares"],
+    "category": "aficionados",
+    "category_label": "Fans"
+  }
+]
+}
+

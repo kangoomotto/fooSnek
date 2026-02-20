@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bullm7g34aloa"]
+
+[node name="BoxInfoHUD" type="Control"]
+visible = false
+layout_mode = 3
+anchor_right = 0.3
+anchor_bottom = 0.2
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_right = 0.3
+anchor_bottom = 1.0
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.35
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "BOX TYPE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HideTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

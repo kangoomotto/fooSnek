@@ -1,0 +1,234 @@
+[gd_scene load_steps=8 format=3 uid="uid://sisur7efxxd7"]
+
+[ext_resource type="Script" uid="uid://c5oagk17h60hi" path="res://scripts/quiz_manager.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cd108f0ds2gul" path="res://game_assets/images/defaults/default_answer.png" id="3_84pkp"]
+[ext_resource type="Texture2D" uid="uid://bnftcu4rvpe1q" path="res://game_assets/images/defaults/default_frame.png" id="3_cu3ch"]
+[ext_resource type="Texture2D" uid="uid://8upgm6xlyfo8" path="res://game_assets/images/defaults/default_slot.png" id="4_s20t6"]
+[ext_resource type="FontFile" uid="uid://rqepwddfwk8w" path="res://game_assets/fonts/motion-control.bold.otf" id="6_cu3ch"]
+[ext_resource type="FontFile" uid="uid://bfywc4sd8ks73" path="res://game_assets/fonts/motion-control.bolditalic.otf" id="6_s20t6"]
+[ext_resource type="Theme" uid="uid://bt11ooea31t6o" path="res://themes/basic_button.tres" id="8_s20t6"]
+
+[node name="HUD_Quiz" type="Panel"]
+custom_minimum_size = Vector2(1080, 1920)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1")
+
+[node name="answer_image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -313.0
+offset_top = -505.0
+offset_right = -57.0
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("3_84pkp")
+stretch_mode = 5
+
+[node name="frame_image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 1920.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("3_cu3ch")
+stretch_mode = 2
+
+[node name="slot_badge" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -974.0
+offset_right = -26.0
+offset_bottom = -718.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("4_s20t6")
+
+[node name="label_slot" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.349
+anchor_top = 0.031
+anchor_right = 0.912
+anchor_bottom = 0.115
+offset_left = -143.92
+offset_top = 393.48
+offset_right = -144.306
+offset_bottom = 393.7
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_cu3ch")
+theme_override_font_sizes/font_size = 70
+text = "Tiro de esquina"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="label_category" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.349
+anchor_top = 0.031
+anchor_right = 0.912
+anchor_bottom = 0.115
+offset_left = -88.92
+offset_top = 516.48
+offset_right = 70.04
+offset_bottom = 495.2
+theme_override_colors/font_color = Color(0.121569, 0.270588, 0.309804, 1)
+theme_override_fonts/font = ExtResource("6_s20t6")
+theme_override_font_sizes/font_size = 120
+text = "Tiro de esquina"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="feedback_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.127
+anchor_top = 0.681
+anchor_right = 0.864
+anchor_bottom = 0.788
+offset_left = 209.84
+offset_top = -28.52
+offset_right = 32.88
+offset_bottom = -102.96
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 15
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/font = ExtResource("6_cu3ch")
+theme_override_font_sizes/font_size = 130
+text = "¡Incorrecto!"
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="label_question" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_left = 129.0
+offset_top = 712.0
+offset_right = -145.0
+offset_bottom = 1288.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/shadow_offset_x = -5
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/font = ExtResource("6_cu3ch")
+theme_override_font_sizes/font_size = 80
+text = "¿Qué entrenador es famoso por su etapa en el Arsenal y por promover el fútbol ofensivo?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="answer_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_left = 24.0
+offset_top = 1439.0
+offset_right = 27.0
+offset_bottom = 1582.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = -30
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("6_s20t6")
+theme_override_font_sizes/font_size = 110
+text = "BRASIL"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Answers" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.734
+anchor_right = 0.5
+anchor_bottom = 0.734
+offset_left = -476.0
+offset_top = -18.28
+offset_right = 483.0
+offset_bottom = 281.72
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Row1" type="HBoxContainer" parent="Answers"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Answer_1" type="Button" parent="Answers/Row1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_s20t6")
+text = "Ronaldo Nazário"
+autowrap_mode = 3
+
+[node name="Answer_2" type="Button" parent="Answers/Row1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_s20t6")
+text = "Ronaldo Nazário"
+autowrap_mode = 3
+
+[node name="Row2" type="HBoxContainer" parent="Answers"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Answer_3" type="Button" parent="Answers/Row2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_s20t6")
+text = "Ronaldo Nazário"
+autowrap_mode = 3
+
+[node name="Answer_4" type="Button" parent="Answers/Row2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_s20t6")
+text = "Ronaldo Nazário"
+autowrap_mode = 3
+
+[connection signal="button_up" from="Answers/Row1/Answer_1" to="." method="_on_answer_1_button_up"]
+[connection signal="button_up" from="Answers/Row1/Answer_2" to="." method="_on_answer_1_button_up"]
+[connection signal="button_up" from="Answers/Row2/Answer_3" to="." method="_on_answer_1_button_up"]
+[connection signal="button_up" from="Answers/Row2/Answer_4" to="." method="_on_answer_1_button_up"]

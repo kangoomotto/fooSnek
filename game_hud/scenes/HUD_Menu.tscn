@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://bam3iybn0yhf5"]
+
+[ext_resource type="Script" uid="uid://b3w1l8fj5si6j" path="res://game_hud/hud_menu.gd" id="1_5karn"]
+[ext_resource type="Texture2D" uid="uid://ca121ix0tltot" path="res://game_assets/images/_system/menu_bg.png" id="3_ibwhm"]
+[ext_resource type="Theme" uid="uid://bt11ooea31t6o" path="res://themes/basic_button.tres" id="4_5karn"]
+[ext_resource type="FontFile" uid="uid://bfywc4sd8ks73" path="res://game_assets/fonts/motion-control.bolditalic.otf" id="4_vudr8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3v6ym"]
+texture = ExtResource("3_ibwhm")
+
+[node name="HUD_Menu" type="Control"]
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -498.0
+offset_right = 502.0
+offset_bottom = 1400.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_5karn")
+
+[node name="MenuBackgound" type="Panel" parent="."]
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 1920.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3v6ym")
+
+[node name="MenuTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -377.0
+offset_top = 334.0
+offset_right = 373.0
+offset_bottom = 506.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = -30
+theme_override_fonts/font = ExtResource("4_vudr8")
+theme_override_font_sizes/font_size = 100
+text = "selecciona tu equipo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionBar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueButton" type="Button" parent="ActionBar"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = 550.0
+offset_right = 350.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_5karn")
+text = "continuarcooo"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.153
+anchor_right = 1.0
+anchor_bottom = 0.903
+offset_left = 155.0
+offset_top = 218.24
+offset_right = -159.0
+offset_bottom = -321.76
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid" type="GridContainer" parent="ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 1000)
+layout_mode = 2
+size_flags_vertical = 0

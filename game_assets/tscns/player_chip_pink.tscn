@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0tlxtniye0h6"]
+
+[ext_resource type="Script" uid="uid://ssqtx77vqi8m" path="res://scripts/fire_trail.gd" id="2_4hlly"]
+[ext_resource type="Script" uid="uid://b08iraa6r6afi" path="res://scripts/chips.gd" id="2_ds4ac"]
+[ext_resource type="Texture2D" uid="uid://dcojx6hr0tfy2" path="res://game_assets/images/_system/SoccerBall_Icon.png" id="2_ovk1y"]
+[ext_resource type="Script" uid="uid://c4oynxp21rq5a" path="res://scripts/fire_ring.gd" id="3_376ao"]
+[ext_resource type="Material" uid="uid://b56wor1jylkuc" path="res://game_assets/shaders/fire_ring.tres" id="5_376ao"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4hlly"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_osfgl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.526027, 0.227516), 1.04211, 1.04211, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_nicxx"]
+offsets = PackedFloat32Array(0, 0.146277, 0.952128, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.89094, 0.191009, 0, 0.930851, 1, 0.65, 0, 0.513726, 1, 0, 0, 0.552941)
+
+[node name="playerChipPink" type="Node2D"]
+z_index = 50
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("2_ds4ac")
+
+[node name="playerSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0.560784, 1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ovk1y")
+
+[node name="FireTrail" type="Node2D" parent="."]
+script = ExtResource("2_4hlly")
+
+[node name="TrailLine" type="Line2D" parent="FireTrail"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+z_index = 101
+material = SubResource("CanvasItemMaterial_4hlly")
+position = Vector2(-171.5, 38.5)
+points = PackedVector2Array(-405.5, 232.5, -170.5, 179.5, 41.5, 78.5, 175, -36)
+width = 200.0
+width_curve = SubResource("Curve_osfgl")
+gradient = SubResource("Gradient_nicxx")
+end_cap_mode = 2
+
+[node name="FireRing" type="Node2D" parent="."]
+script = ExtResource("3_376ao")
+
+[node name="RingSprite" type="ColorRect" parent="FireRing"]
+z_index = 102
+material = ExtResource("5_376ao")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=3 uid="uid://bd3i6lxjgj1h7"]
+
+[ext_resource type="Script" uid="uid://bynslxxp8ll03" path="res://game_hud/hud_winner.gd" id="1_0gl7u"]
+[ext_resource type="Texture2D" uid="uid://ca121ix0tltot" path="res://game_assets/images/_system/menu_bg.png" id="1_ha6kk"]
+[ext_resource type="Theme" uid="uid://our0uecgf1p5" path="res://themes/menu_font.tres" id="3_k55av"]
+[ext_resource type="Texture2D" uid="uid://dgwee3fovfva5" path="res://game_assets/images/defaults/shield.png" id="3_y13hx"]
+[ext_resource type="Theme" uid="uid://bt11ooea31t6o" path="res://themes/basic_button.tres" id="5_ha6kk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c8wrl"]
+texture = ExtResource("1_ha6kk")
+
+[node name="HUD_Winner" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_c8wrl")
+script = ExtResource("1_0gl7u")
+
+[node name="hud_title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 300.0
+grow_horizontal = 2
+mouse_filter = 1
+theme = ExtResource("3_k55av")
+theme_override_font_sizes/font_size = 120
+text = "Final"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinnerOrDraw" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 200.0
+offset_bottom = 310.0
+grow_horizontal = 2
+theme = ExtResource("3_k55av")
+theme_override_constants/shadow_outline_size = 5
+text = "Winner/ Draw"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 210.0
+offset_top = 400.0
+offset_right = -220.0
+offset_bottom = 1400.0
+grow_horizontal = 2
+
+[node name="Name1" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_k55av")
+text = "Team 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Shield1" type="TextureRect" parent="GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_y13hx")
+
+[node name="Score1" type="Label" parent="GridContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_k55av")
+theme_override_font_sizes/font_size = 200
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Name2" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_k55av")
+text = "Team 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Shield2" type="TextureRect" parent="GridContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_y13hx")
+
+[node name="Score2" type="Label" parent="GridContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_k55av")
+theme_override_font_sizes/font_size = 200
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -420.0
+offset_right = -190.0
+offset_bottom = -320.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_ha6kk")
+text = "play again"
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -420.0
+offset_right = -190.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_ha6kk")
+text = "Inicio"

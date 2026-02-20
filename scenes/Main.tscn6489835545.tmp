@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://u2ido474y8mh"]
+
+[ext_resource type="Script" uid="uid://cctjfvhlvs7ti" path="res://scripts/main.gd" id="1_6r6rf"]
+[ext_resource type="Script" uid="uid://d2aoea8v8dhbn" path="res://scripts/game_manager.gd" id="2_uto3c"]
+[ext_resource type="Script" uid="uid://d104hvrlv5e7t" path="res://scripts/board_manager.gd" id="3_ue88o"]
+[ext_resource type="Script" uid="uid://b2202pup6tli1" path="res://scripts/sudden_manager.gd" id="4_wp0k4"]
+[ext_resource type="PackedScene" uid="uid://cjrvk6227nqjp" path="res://assets/tscns/stadium_board.tscn" id="5_lhr70"]
+[ext_resource type="PackedScene" uid="uid://c0tlxtniye0h6" path="res://assets/tscns/player_chip.tscn" id="6_lhr70"]
+[ext_resource type="PackedScene" uid="uid://0a47turok56b" path="res://game_hud/scenes/GameHud.tscn" id="8_kivnl"]
+[ext_resource type="PackedScene" uid="uid://d14tvpl4sar43" path="res://3d_dice/DiceBox.tscn" id="11_0jnqq"]
+
+[node name="MAIN" type="Node2D"]
+script = ExtResource("1_6r6rf")
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("2_uto3c")
+
+[node name="BoardManager" type="Node2D" parent="."]
+script = ExtResource("3_ue88o")
+
+[node name="SuddenDeathManager" type="Node" parent="."]
+script = ExtResource("4_wp0k4")
+
+[node name="BoardLayout" parent="." instance=ExtResource("5_lhr70")]
+position = Vector2(540, 960)
+
+[node name="ChipPlaceholder" parent="." instance=ExtResource("6_lhr70")]
+position = Vector2(333, 1566)
+
+[node name="StepTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="DiceViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 1080.0
+offset_bottom = 1920.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="DiceViewport" type="SubViewport" parent="DiceViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1080, 1920)
+render_target_clear_mode = 2
+render_target_update_mode = 4
+
+[node name="Dice_Box" parent="DiceViewportContainer/DiceViewport" instance=ExtResource("11_0jnqq")]
+
+[node name="GameHud" parent="." instance=ExtResource("8_kivnl")]
+visible = false

@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://0a47turok56b"]
+
+[ext_resource type="Script" uid="uid://bowgmcbb2c5ry" path="res://game_hud/game_hud.gd" id="1_7ioeu"]
+[ext_resource type="PackedScene" uid="uid://bd3i6lxjgj1h7" path="res://game_hud/scenes/HUD_Winner.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bam3iybn0yhf5" path="res://game_hud/scenes/HUD_Menu.tscn" id="4_t84rj"]
+[ext_resource type="PackedScene" uid="uid://cwctp3ib4u4in" path="res://game_hud/scenes/HUD_Halftime.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://cfuwhh4qgolps" path="res://game_hud/scenes/HUD_Score.tscn" id="7_nvku6"]
+[ext_resource type="PackedScene" uid="uid://sisur7efxxd7" path="res://game_hud/scenes/HUD_Quiz.tscn" id="7_qf28f"]
+[ext_resource type="PackedScene" uid="uid://dojniolabuw8h" path="res://game_hud/scenes/HUD_Global.tscn" id="8_na37g"]
+[ext_resource type="Script" uid="uid://goabkiudjcrg" path="res://scripts/popup_manager.gd" id="8_t84rj"]
+
+[node name="GameHud" type="CanvasLayer"]
+script = ExtResource("1_7ioeu")
+
+[node name="HUD_Quiz" parent="." instance=ExtResource("7_qf28f")]
+z_index = 1
+
+[node name="HUD_Menu" parent="." instance=ExtResource("4_t84rj")]
+
+[node name="HUD_Score" parent="." instance=ExtResource("7_nvku6")]
+z_index = 3
+z_as_relative = false
+offset_top = 136.0
+offset_bottom = 336.0
+mouse_filter = 2
+
+[node name="HUD_Winner" parent="." instance=ExtResource("4")]
+visible = false
+z_index = 3
+rotation = 0.00115116
+
+[node name="HUD_Halftime" parent="." instance=ExtResource("5")]
+visible = false
+z_index = 3
+size_flags_horizontal = 4
+
+[node name="PopupManager" type="Node" parent="."]
+script = ExtResource("8_t84rj")
+
+[node name="HUD_Global" parent="." instance=ExtResource("8_na37g")]

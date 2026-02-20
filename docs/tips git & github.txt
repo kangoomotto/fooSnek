@@ -1,0 +1,6 @@
+🧠 Bonus Tip: Check Your Remote
+If you ever want to confirm the remote is set correctly, run:
+
+bash
+git remote -v
+It’ll show you the URL Git is using for pushes and pulls.

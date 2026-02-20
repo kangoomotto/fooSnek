@@ -1,0 +1,57 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=7 format=3 uid="uid://bodnfbew56u36"]
+
+[sub_resource type="Curve" id="Curve_v7huf"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0.505535, 200), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kddwi"]
+width = 500
+curve = SubResource("Curve_v7huf")
+
+[sub_resource type="Gradient" id="Gradient_d423q"]
+offsets = PackedFloat32Array(0.0719697, 0.285985, 0.426136, 0.564394, 0.819672, 0.996721)
+colors = PackedColorArray(0.59411, 0.000113204, 0.534335, 1, 0.519619, 0.80362, 7.70092e-07, 1, 0, 0.765735, 0.819706, 1, 1, 0.4, 0, 1, 0.842168, 0.577439, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7tfvv"]
+gradient = SubResource("Gradient_d423q")
+
+[sub_resource type="Curve" id="Curve_wwghg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.359779, 0.432082), -2.3272, -2.3272, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_v7huf"]
+curve = SubResource("Curve_wwghg")
+
+[resource]
+lifetime_randomness = 0.1
+emission_shape_offset = Vector3(0, 800, 0)
+emission_shape = 3
+emission_box_extents = Vector3(540, 960, 0)
+angle_min = -720.0
+angle_max = 720.0
+inherit_velocity_ratio = 50.0
+direction = Vector3(0, 0, -1)
+spread = 5.0
+flatness = 1.0
+initial_velocity_max = 100.0
+angular_velocity_min = -720.0
+angular_velocity_max = -611.07
+orbit_velocity_min = -2.0
+orbit_velocity_max = -1.083
+radial_velocity_min = -417.24
+radial_velocity_max = 296.55
+gravity = Vector3(0, 0, -50)
+scale_min = 10.0
+scale_max = 50.0
+scale_curve = SubResource("CurveTexture_v7huf")
+color_ramp = SubResource("GradientTexture1D_7tfvv")
+hue_variation_min = 0.1
+hue_variation_max = 1.0
+anim_speed_min = 91.9
+anim_speed_max = 100.0
+anim_speed_curve = SubResource("CurveTexture_kddwi")
+turbulence_noise_strength = 5.0
+turbulence_noise_scale = 20.0
+turbulence_influence_min = 0.451
+turbulence_influence_max = 1.0

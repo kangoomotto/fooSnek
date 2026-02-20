@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://co5a54ikiyngv"]
+
+[node name="Box_00" type="Marker2D"]
+gizmo_extents = 50.0

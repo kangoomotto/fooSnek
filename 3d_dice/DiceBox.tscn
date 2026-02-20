@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://d14tvpl4sar43"]
+
+[ext_resource type="Script" uid="uid://caiv38bbsadnh" path="res://3d_dice/script/dice_box.gd" id="1_1kefr"]
+[ext_resource type="PackedScene" uid="uid://dj37x3gdeqmrk" path="res://3d_dice/Dice3D.tscn" id="2_pwcq2"]
+[ext_resource type="Shader" uid="uid://6f13f17oj7mb" path="res://3d_dice/materials/DiceBoxFloor.gdshader" id="3_woadr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fcnsl"]
+rough = true
+bounce = 1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2wuwb"]
+rough = true
+bounce = 2.0
+absorbent = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_jmyd4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qten1"]
+bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_se4jx"]
+size = Vector3(20, 10, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qbc5f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2cod4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kbdix"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40yec"]
+render_priority = 0
+shader = ExtResource("3_woadr")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_opacity = 0.0
+shader_parameter/shadow_max_opacity = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l6te4"]
+size = Vector2(25, 30)
+
+[node name="DiceBox" type="Node3D"]
+script = ExtResource("1_1kefr")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 20, 5)
+current = true
+fov = 55.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 5.65, 10, 10)
+light_energy = 5.0
+spot_range = 30.0
+spot_angle = 55.6938
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0804777, 13.962, -3.0479)
+light_energy = 10.0
+light_volumetric_fog_energy = 0.0
+light_size = 2.0
+light_specular = 0.01
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 20.0
+
+[node name="Dice" parent="." instance=ExtResource("2_pwcq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+physics_material_override = SubResource("PhysicsMaterial_fcnsl")
+
+[node name="Result_Label" type="Label" parent="."]
+offset_left = 638.0
+offset_top = 1671.0
+offset_right = 764.0
+offset_bottom = 1746.0
+scale = Vector2(3.33558, 3.16398)
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="Floor" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_2wuwb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_jmyd4")
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+physics_material_override = SubResource("PhysicsMaterial_qten1")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("BoxShape3D_se4jx")
+metadata/_edit_group_ = true
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
+physics_material_override = SubResource("PhysicsMaterial_qbc5f")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("BoxShape3D_se4jx")
+metadata/_edit_group_ = true
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 4)
+physics_material_override = SubResource("PhysicsMaterial_2cod4")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("BoxShape3D_se4jx")
+metadata/_edit_group_ = true
+
+[node name="Wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, 4)
+physics_material_override = SubResource("PhysicsMaterial_kbdix")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("BoxShape3D_se4jx")
+metadata/_edit_group_ = true
+
+[node name="ShadowCatcher" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("ShaderMaterial_40yec")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_l6te4")

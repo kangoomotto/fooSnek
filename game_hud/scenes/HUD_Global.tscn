@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dojniolabuw8h"]
+
+[ext_resource type="Script" uid="uid://cbbb3hqbuqn54" path="res://game_hud/hud_global.gd" id="1_svp6v"]
+[ext_resource type="Theme" uid="uid://us1grle8ks4q" path="res://themes/toggle_button_audio.tres" id="3_quep1"]
+[ext_resource type="Theme" uid="uid://d4mng64fs4ii" path="res://themes/toggle_button.tres" id="5_vvu3o"]
+
+[node name="Hud_Global" type="CanvasLayer"]
+script = ExtResource("1_svp6v")
+
+[node name="LanguageToggle" type="CheckButton" parent="."]
+offset_left = 30.0
+offset_top = 1742.0
+offset_right = 82.0
+offset_bottom = 1774.0
+scale = Vector2(4.56035, 4.56035)
+theme = ExtResource("5_vvu3o")
+
+[node name="Btn_Audio" type="CheckButton" parent="."]
+offset_left = 297.0
+offset_top = 1742.0
+offset_right = 349.0
+offset_bottom = 1774.0
+scale = Vector2(4.56035, 4.56035)
+theme = ExtResource("3_quep1")

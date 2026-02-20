@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b56wor1jylkuc"]
+
+[ext_resource type="Shader" uid="uid://ds4tbu4uo46ep" path="res://game_assets/shaders/fire_ring.gdshader" id="1_gcqa5"]
+
+[resource]
+shader = ExtResource("1_gcqa5")
+shader_parameter/base_inner_radius = 0.7
+shader_parameter/base_outer_radius = 1.0
+shader_parameter/rotation_speed = 2.0
+shader_parameter/runtime_speed_boost = 2.0
+shader_parameter/swirl_strength = 2.0
+shader_parameter/noise_frequency = 20.0
+shader_parameter/glow_power = 2.0
+shader_parameter/core_color = Color(1, 1, 1, 1)
+shader_parameter/edge_color = Color(1, 1, 1, 1)

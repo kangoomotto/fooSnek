@@ -1,0 +1,151 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpyfevuuoirbt"]
+
+[ext_resource type="Script" uid="uid://db8q6r3jal07k" path="res://game_hud/hud_game_mode.gd" id="1_w47px"]
+[ext_resource type="Texture2D" uid="uid://ca121ix0tltot" path="res://game_assets/images/_system/menu_bg.png" id="2_o550j"]
+[ext_resource type="FontFile" uid="uid://bfywc4sd8ks73" path="res://game_assets/fonts/motion-control.bolditalic.otf" id="3_o550j"]
+[ext_resource type="Theme" uid="uid://bt11ooea31t6o" path="res://themes/basic_button.tres" id="4_hnc7p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o550j"]
+texture = ExtResource("2_o550j")
+
+[node name="HUD_GameMode" type="Control"]
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_w47px")
+
+[node name="MenuBackgound" type="Panel" parent="."]
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 1920.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_o550j")
+
+[node name="OptionsTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.076
+anchor_top = 0.077
+anchor_right = 0.924
+anchor_bottom = 0.134
+offset_left = -9.5
+offset_top = -7.8
+offset_right = 9.5
+offset_bottom = -7.61499
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/shadow_offset_x = -10
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 25
+theme_override_constants/shadow_outline_size = 25
+theme_override_fonts/font = ExtResource("3_o550j")
+theme_override_font_sizes/font_size = 100
+text = "modo de juego"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.781
+anchor_right = 1.0
+anchor_bottom = 0.829
+offset_top = 0.47998
+offset_bottom = 58.3201
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MC5" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="btn_close" type="Button" parent="VBoxContainer2/MC5"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_hnc7p")
+text = "cerrar"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28
+anchor_top = 0.324
+anchor_right = 0.78
+anchor_bottom = 0.842
+offset_left = -67.4
+offset_top = -7.08002
+offset_right = -7.39996
+offset_bottom = -154.64
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Grid" type="GridContainer" parent="ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MC1" type="MarginContainer" parent="ScrollContainer/MarginContainer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="btn_mode_1" type="Button" parent="ScrollContainer/MarginContainer/Grid/MC1"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme = ExtResource("4_hnc7p")
+text = "Single Player"
+
+[node name="MC2" type="MarginContainer" parent="ScrollContainer/MarginContainer/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="btn_mode_2" type="Button" parent="ScrollContainer/MarginContainer/Grid/MC2"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+theme = ExtResource("4_hnc7p")
+text = "2 players
+(Hotseat)"
+
+[node name="MC3" type="MarginContainer" parent="ScrollContainer/MarginContainer/Grid"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="btn_mode_3" type="Button" parent="ScrollContainer/MarginContainer/Grid/MC3"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+theme = ExtResource("4_hnc7p")
+disabled = true
+text = " Multiplayer
+Online"

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dta4elcbqk1rx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yinp4"]
+
+[node name="DebugPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 150)
+theme_override_styles/panel = SubResource("StyleBoxFlat_yinp4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TestModeCheckBox" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RollSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RollLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "label"
+
+[node name="ForceRollButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ChipStatusLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2

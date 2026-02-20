@@ -1,0 +1,181 @@
+[gd_scene load_steps=7 format=3 uid="uid://owpiiw7abnr3"]
+
+[ext_resource type="Script" uid="uid://4hdivdhl0wcf" path="res://game_hud/hud_start.gd" id="1_wm57r"]
+[ext_resource type="PackedScene" uid="uid://dpyfevuuoirbt" path="res://game_hud/scenes/HUD_GameMode.tscn" id="3_d0mjr"]
+[ext_resource type="Theme" uid="uid://cji3sllgxv7xq" path="res://themes/popup_theme.tres" id="3_kcglr"]
+[ext_resource type="PackedScene" uid="uid://bpsdrtsesbp0m" path="res://game_hud/scenes/HUD_Teams.tscn" id="4_da7vh"]
+[ext_resource type="PackedScene" uid="uid://o110sg6yyf2" path="res://game_hud/scenes/HUD_Court.tscn" id="5_da7vh"]
+[ext_resource type="PackedScene" uid="uid://bln360iwxy8vy" path="res://game_hud/scenes/HUD_About_Us.tscn" id="6_rng5q"]
+
+[node name="HUD_Start" type="Control"]
+custom_minimum_size = Vector2(1000, 1200)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 460.0
+offset_bottom = 1400.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_wm57r")
+
+[node name="start_texture" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_kcglr")
+
+[node name="main_menu" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 100.0
+offset_right = 400.0
+offset_bottom = 174.0
+grow_horizontal = 2
+theme = ExtResource("3_kcglr")
+theme_override_font_sizes/font_size = 100
+text = "FooSnek"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="subtext" type="Label" parent="."]
+layout_mode = 2
+anchor_left = 0.09
+anchor_top = 0.297
+anchor_right = 0.91
+anchor_bottom = 0.358
+offset_top = -217.8
+offset_bottom = -152.2
+theme = ExtResource("3_kcglr")
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 5
+text = "sneks and ladders"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.375
+anchor_right = 1.0
+anchor_bottom = 0.992
+offset_top = -75.0
+offset_bottom = -75.4
+grow_horizontal = 2
+
+[node name="MC1" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_kcglr")
+
+[node name="btn_game_mode" type="Button" parent="VBoxContainer/MC1"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme = ExtResource("3_kcglr")
+text = "Single Player"
+
+[node name="MC2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_kcglr")
+
+[node name="btn_team_select" type="Button" parent="VBoxContainer/MC2"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme = ExtResource("3_kcglr")
+text = "choose  teams"
+
+[node name="MC3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_kcglr")
+
+[node name="btn_court_select" type="Button" parent="VBoxContainer/MC3"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme = ExtResource("3_kcglr")
+text = "select court"
+
+[node name="MC4" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_kcglr")
+
+[node name="btn_start_game" type="Button" parent="VBoxContainer/MC4"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme = ExtResource("3_kcglr")
+theme_override_font_sizes/font_size = 100
+text = "START GAME"
+
+[node name="MC5" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_kcglr")
+
+[node name="btn_about_us" type="Button" parent="VBoxContainer/MC5"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme = ExtResource("3_kcglr")
+theme_override_font_sizes/font_size = 50
+text = "about us"
+
+[node name="MC6" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_kcglr")
+
+[node name="btn_exit" type="Button" parent="VBoxContainer/MC6"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme = ExtResource("3_kcglr")
+theme_override_font_sizes/font_size = 50
+text = "exit"
+
+[node name="HUD_GameMode" parent="." instance=ExtResource("3_d0mjr")]
+visible = false
+layout_mode = 1
+offset_left = -500.0
+offset_right = 500.0
+
+[node name="HUD_Teams" parent="." instance=ExtResource("4_da7vh")]
+visible = false
+layout_mode = 1
+offset_left = -500.0
+offset_right = 500.0
+
+[node name="HUD_Court" parent="." instance=ExtResource("5_da7vh")]
+visible = false
+layout_mode = 1
+offset_left = -500.0
+offset_right = 500.0
+
+[node name="HUD_About_Us" parent="." instance=ExtResource("6_rng5q")]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_right = 500.0
+grow_horizontal = 2
+
+[connection signal="mouse_entered" from="VBoxContainer/MC1/btn_game_mode" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/MC1/btn_game_mode" to="." method="_on_Button_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/MC2/btn_team_select" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/MC2/btn_team_select" to="." method="_on_Button_mouse_exited"]

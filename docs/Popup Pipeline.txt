@@ -1,0 +1,36 @@
+Popup Pipeline
+
+GameManager → EventsBus.show_popup → PopupManager.show_popup
+     ↓
+PopupManager instantiates PopupBase → emits popup_ready
+     ↓
+GameHUD catches popup_ready → adds popup to HUD layer
+     ↓
+PopupBase.start() plays SFX, shows image, emits popup_animation_done after timer
+     ↓
+GameManager._on_popup_animation_done() resumes FSM
+
+
+show_popup(slot_type, position, ...)
+│
+├─ popup_manager.show_popup() → adds to queue
+│
+├─ popup_manager._process_next_popup()
+│     → instance PopupBase
+│     → emits EventsBus.popup_ready
+│
+├─ GameHUD._on_popup_ready()
+│     → popup_layer.add_child(popup)
+│
+├─ PopupBase.start()
+│     → set_random_visual()
+│     → play_random_sfx()
+│     → show()
+│     → after delay → EventsBus.popup_animation_done.emit()
+│
+└─ GameManager._on_popup_animation_done()
+      → waiting_for_blocking_popup = false
+      → if last_slot_result.slot_type == "overshoot":
+              return  # no auto-advance
+      → _check_time_panels_idle()
+      → _advance_turn_flow("popup_done")

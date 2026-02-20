@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://our0uecgf1p5"]
+
+[ext_resource type="FontFile" uid="uid://rqepwddfwk8w" path="res://game_assets/fonts/motion-control.bold.otf" id="1_6ikj5"]
+[ext_resource type="FontFile" uid="uid://lqwafeu2v2qu" path="res://game_assets/fonts/PixeloidSans-Bold.ttf" id="1_fclnm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xx76c"]
+bg_color = Color(0.360784, 0.776471, 0.929412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etpl2"]
+content_margin_left = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 150.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wuj7s"]
+bg_color = Color(0.3159, 0.67824, 0.81, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6rhs"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.201527, 0.201527, 0.201526, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yxd4"]
+content_margin_left = 50.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.864675, 0.864675, 0.864675, 1)
+
+[resource]
+Button/colors/font_color = Color(0.992157, 0.435294, 0.129412, 1)
+Button/colors/font_hover_color = Color(0.432667, 0.26, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.99, 0.1287, 0.1287, 1)
+Button/constants/h_separation = 0
+Button/constants/line_spacing = 0
+Button/constants/outline_size = 25
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("1_6ikj5")
+Label/font_sizes/font_size = 100
+Label/fonts/font = ExtResource("1_6ikj5")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+Panel/styles/panel = SubResource("StyleBoxFlat_xx76c")
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_etpl2")
+TextEdit/fonts/font = ExtResource("1_fclnm")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_wuj7s")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_v6rhs")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_8yxd4")

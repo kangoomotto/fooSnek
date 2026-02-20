@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://deijxm15tosmi"]
+
+[ext_resource type="Script" uid="uid://b08iraa6r6afi" path="res://scripts/chips.gd" id="1_elhpp"]
+[ext_resource type="Texture2D" uid="uid://dcojx6hr0tfy2" path="res://game_assets/images/_system/SoccerBall_Icon.png" id="2_j0lxr"]
+[ext_resource type="Script" uid="uid://ssqtx77vqi8m" path="res://scripts/fire_trail.gd" id="2_osfgl"]
+[ext_resource type="Script" uid="uid://c4oynxp21rq5a" path="res://scripts/fire_ring.gd" id="3_nicxx"]
+[ext_resource type="Material" uid="uid://b56wor1jylkuc" path="res://game_assets/shaders/fire_ring.tres" id="5_nicxx"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j0lxr"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_osfgl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.526027, 0.227516), 1.04211, 1.04211, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_nicxx"]
+offsets = PackedFloat32Array(0, 0.146277, 0.952128, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.89094, 0.191009, 0, 0.930851, 1, 0.65, 0, 0.513726, 1, 0, 0, 0.552941)
+
+[node name="playerChipCyan" type="Node2D"]
+z_index = 50
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_elhpp")
+
+[node name="playerSprite" type="Sprite2D" parent="."]
+modulate = Color(0.533333, 1, 1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_j0lxr")
+
+[node name="FireTrail" type="Node2D" parent="."]
+script = ExtResource("2_osfgl")
+
+[node name="TrailLine" type="Line2D" parent="FireTrail"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+z_index = 101
+material = SubResource("CanvasItemMaterial_j0lxr")
+position = Vector2(-171.5, 38.5)
+points = PackedVector2Array(-105, 122, -12, 91.5, 76.5, 45.5, 169.5, -28)
+width = 200.0
+width_curve = SubResource("Curve_osfgl")
+gradient = SubResource("Gradient_nicxx")
+end_cap_mode = 2
+
+[node name="FireRing" type="Node2D" parent="."]
+script = ExtResource("3_nicxx")
+
+[node name="RingSprite" type="ColorRect" parent="FireRing"]
+z_index = 102
+material = ExtResource("5_nicxx")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
