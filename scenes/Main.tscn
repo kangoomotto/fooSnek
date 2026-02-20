@@ -16,9 +16,8 @@ script = ExtResource("1_6r6rf")
 [node name="GameManager" type="Node2D" parent="."]
 position = Vector2(3, 0)
 script = ExtResource("2_uto3c")
-DEBUG_MODE = true
 force_dice = 3
-DEBUG_SKIP_MENUS = true
+POPUPS_ENABLED = false
 
 [node name="BoardManager" type="Node2D" parent="."]
 unique_name_in_owner = true

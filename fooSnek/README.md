@@ -1,2 +1,0 @@
-# fooSnek
-soccer snakes & ladders

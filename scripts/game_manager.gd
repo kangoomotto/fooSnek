@@ -15,12 +15,21 @@ extends Node2D
 const GameState = preload("res://scripts/game_state.gd").GameState
 enum PanelPending { NONE, HALFTIME, WINNER }
 const POPUP_SAFETY_TIMEOUT := 15.0
+# =========================================================
+# 🔹 FSM
+# =========================================================
+var fsm := GameFSM.new()
 
+# current_state is now a read-only view into the FSM.
+# Any direct write logs a warning and is ignored.
+var current_state: int:
+	get: return fsm.current
+	set(_v): push_warning("⛔ Direct state write blocked — use _change_state()")
+	
 # =========================================================
 # 🔹 VARIABLES
 # =========================================================
 var game_mode: String = "cpu"
-var current_state: int = GameState.START_MENU
 var current_turn: int = 0
 var current_chip: Node2D
 var last_slot_result: Dictionary = {}
@@ -78,6 +87,7 @@ var _last_advance_frame: int = 0
 # 🔹 READY
 # =========================================================
 func _ready():
+	_setup_fsm()
 	_initialize_teams_and_court()
 	_initialize_team_signals()
 
@@ -119,13 +129,73 @@ func _ready():
 		EventsBus.debug_skip_menus_enabled.emit()
 
 	EventsBus.popup_visual_feedback.emit(POPUP_VISUAL_FEEDBACK)
-
-	_change_state(GameState.START_MENU)
 	_highlight_active_player(current_turn)
 
-	# Only tick _process when debugging
 	set_process(DEBUG_MODE)
+	
+# =========================================================
+# 🔹 FSM SETUP
+# =========================================================
+func _setup_fsm() -> void:
+	fsm.set_debug(DEBUG_MODE)
 
+	# Build state name lookup from enum
+	var names := {}
+	var gs_script = preload("res://scripts/game_state.gd")
+	for key_name in gs_script.GameState.keys():
+		names[gs_script.GameState[key_name]] = key_name
+	fsm.set_state_names(names)
+
+	# --- Define every valid transition ---
+
+	# Start → Play
+	fsm.define(GameState.START_MENU, GameState.AWAITING_ROLL)
+
+	# Core turn loop
+	fsm.define(GameState.AWAITING_ROLL, GameState.ROLLING)
+	fsm.define(GameState.ROLLING, GameState.MOVING_CHIP)
+	fsm.define(GameState.MOVING_CHIP, GameState.RESOLVING_SLOT)
+
+	# Slot resolution branches
+	fsm.define(GameState.RESOLVING_SLOT, GameState.QUIZ)
+	fsm.define(GameState.RESOLVING_SLOT, GameState.POPUP)
+	fsm.define(GameState.RESOLVING_SLOT, GameState.AWAITING_ROLL)
+
+	# Quiz resolution branches
+	fsm.define(GameState.QUIZ, GameState.POPUP)
+	fsm.define(GameState.QUIZ, GameState.AWAITING_ROLL)
+
+	# Popup → back to turn loop
+	fsm.define(GameState.POPUP, GameState.AWAITING_ROLL)
+
+	# Time panels
+	fsm.define(GameState.AWAITING_ROLL, GameState.SHOWING_HALFTIME)
+	fsm.define(GameState.AWAITING_ROLL, GameState.SHOWING_WINNER)
+	fsm.define(GameState.SHOWING_HALFTIME, GameState.AWAITING_ROLL)
+	fsm.define(GameState.SHOWING_WINNER, GameState.START_MENU)
+
+	# Pause from any active gameplay state
+	var pausable := [
+		GameState.AWAITING_ROLL,
+		GameState.ROLLING,
+		GameState.MOVING_CHIP,
+		GameState.RESOLVING_SLOT,
+		GameState.QUIZ,
+		GameState.POPUP,
+	]
+	for state in pausable:
+		fsm.define(state, GameState.GAME_PAUSED)
+
+	# Resume + bail-out paths
+	fsm.define(GameState.GAME_PAUSED, GameState.AWAITING_ROLL)
+	fsm.define(GameState.GAME_PAUSED, GameState.START_MENU)
+
+	# Connect BEFORE setting initial state so side effects fire
+	fsm.state_changed.connect(_on_state_changed)
+
+	# Initial state — no "from" state exists, so force it
+	fsm.force(GameState.START_MENU)
+	
 # =========================================================
 # 🔹 CHIP MOVE FINISHED (OVERSHOOT/BOUNCE-BACK)
 # ---------------------------------------------------------
@@ -174,16 +244,16 @@ func _on_board_ready() -> void:
 func _on_pause_requested() -> void:
 	if current_state == GameState.GAME_PAUSED or current_state == GameState.START_MENU:
 		return
-	current_state = GameState.GAME_PAUSED
+	if not _change_state(GameState.GAME_PAUSED):
+		return
 	EventsBus.pause_timer.emit()
-	EventsBus.dice_roll_enabled.emit(false)
 
 func _on_resume_pressed() -> void:
 	if current_state != GameState.GAME_PAUSED:
 		return
-	current_state = GameState.AWAITING_ROLL
+	if not _change_state(GameState.AWAITING_ROLL):
+		return
 	EventsBus.resume_timer.emit()
-	EventsBus.dice_roll_enabled.emit(true)
 
 # =========================================================
 # 🔹 CHIP RESET AND VISUALS
@@ -249,6 +319,7 @@ func _on_main_menu() -> void:
 	var audio_brain := get_node_or_null("/root/AudioBrain")
 	if audio_brain:
 		audio_brain._pause_ambience()
+	# GAME_PAUSED → START_MENU is a defined transition
 	_change_state(GameState.START_MENU)
 
 func _resetGame() -> void:
@@ -617,17 +688,20 @@ func _on_popup_animation_done() -> void:
 # =========================================================
 # 🔹 STATE MANAGEMENT
 # ---------------------------------------------------------
-# _change_state is PURE — no awaits, no side effects that
-# could desync the FSM. Deferred calls handle async needs.
+# _change_state: thin wrapper, returns false if illegal.
+# _on_state_changed: ALL side effects live here, never in
+#   the setter. Fired by the FSM signal, guaranteed to only
+#   run on valid transitions.
 # =========================================================
-func _change_state(new_state: int) -> void:
-	current_state = new_state
+func _change_state(new_state: int) -> bool:
+	return fsm.transition_to(new_state)
+
+func _on_state_changed(_old_state: int, new_state: int) -> void:
 	EventsBus.dice_roll_enabled.emit(new_state == GameState.AWAITING_ROLL)
 
 	if new_state == GameState.AWAITING_ROLL:
 		if is_cpu_turn():
 			_auto_roll_for_cpu()
-		# Deferred — not await — so _change_state returns immediately
 		call_deferred("_check_time_panels_idle")
 
 func _check_time_panels_idle():

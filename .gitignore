@@ -1,4 +1,12 @@
-.godot/
-.import/
-*.import
+# Godot 4 UID files
 *.uid
+
+# Godot editor
+.import/
+.export/
+.editor/
+.editor_settings/
+
+# OS
+.DS_Store
+Thumbs.db
