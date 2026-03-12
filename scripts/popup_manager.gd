@@ -11,7 +11,7 @@ const PopupBaseScene := preload("res://game_hud/scenes/PopupBase.tscn")
 
 # Offsets and size scales are kept from the original
 var _slot_offsets := {
-	"goal": Vector2(-250,-1000),
+	"goal": Vector2(-250,-700),
 	"overshoot": Vector2(-250,-200),
 	"red": Vector2(-250,-200),
 	"yellow": Vector2(-250,-200),
@@ -25,19 +25,27 @@ var _slot_size_scale := {
 	"red": 0.5, "overshoot": 0.5
 }
 var _popups_enabled: bool = true
+var _visual_feedback_enabled: Dictionary = {}
 
 func _ready():
 	# We now only listen for the request to show a popup.
 	EventsBus.show_popup.connect(_show_popup)
-	
-# This is now the main, and only, function.
+	EventsBus.popup_visual_feedback.connect(func(config: Dictionary):
+		_visual_feedback_enabled = config
+	)
+
 func _show_popup(slot_type: String, position: Vector2, is_correct: bool = true, extra_info: Dictionary = {}) -> void:
 	
 	if not _popups_enabled:
 		# Emit done immediately so GameManager doesn't stall
 		EventsBus.popup_animation_done.emit()
 		return
-
+		
+	# Per-type visual feedback check
+	if _visual_feedback_enabled.has(slot_type) and not _visual_feedback_enabled[slot_type]:
+		EventsBus.popup_animation_done.emit()
+		return
+		
 	if slot_type.is_empty():
 		push_warning("⚠ PopupManager: Empty slot_type ignored")
 		EventsBus.popup_animation_done.emit()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ybgx6eftiul3"]
 
 [ext_resource type="Script" uid="uid://dnn105f2ejos8" path="res://game_hud/hud_timer.gd" id="1_c24bj"]
-[ext_resource type="FontFile" uid="uid://do3s6h3n5dd43" path="res://game_assets/fonts/Soccer Scoreboard.otf" id="2_pp1gc"]
+[ext_resource type="FontFile" uid="uid://biryt36b6ciw" path="res://game_assets/fonts/Soccer Scoreboard.otf" id="2_pp1gc"]
 
 [node name="HUD_Timer" type="Control"]
 custom_minimum_size = Vector2(300, 80)

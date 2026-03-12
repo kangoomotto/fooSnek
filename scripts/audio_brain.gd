@@ -83,7 +83,8 @@ func _ready():
 
 	_load_ambience_files()
 	_register_signals()
-
+	set_audio_enabled(audio_enabled)
+	
 	if audio_enabled:
 		_play_random_ambience()
 
@@ -175,6 +176,9 @@ func _on_final_commentary():
 # 🔹 POPUP / SLOT SFX
 # =========================================================
 func _on_popup_sfx(slot_type: String) -> void:
+	if not audio_enabled:
+		return
+		
 	if popup_sfx.has(slot_type):
 		sfx_player.stop()
 		sfx_player.stream = popup_sfx[slot_type]

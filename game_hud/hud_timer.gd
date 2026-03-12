@@ -15,7 +15,7 @@ var running: bool = false
 # Game config
 const HALF_TIME_MINUTES := 45
 const FULL_TIME_MINUTES := 90
-const GAME_SPEED := 20.0  # adjust for ~5 min real time
+const GAME_SPEED := 10.0  # adjust for ~5 min real time
 
 var halftime_emitted: bool = false
 var match_end_emitted: bool = false
@@ -43,7 +43,8 @@ func stop_timer():
 	running = false
 
 func reset_timer():
-	current_time = 0
+	current_time = 0.0
+	running = false
 	halftime_emitted = false
 	match_end_emitted = false
 	_update_label()

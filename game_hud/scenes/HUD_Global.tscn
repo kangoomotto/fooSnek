@@ -1,24 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://dojniolabuw8h"]
+[gd_scene load_steps=6 format=3 uid="uid://dojniolabuw8h"]
 
 [ext_resource type="Script" uid="uid://cbbb3hqbuqn54" path="res://game_hud/hud_global.gd" id="1_svp6v"]
+[ext_resource type="PackedScene" uid="uid://bg2fc0co6a1gg" path="res://game_hud/scenes/hud_pause.tscn" id="2_obn1q"]
 [ext_resource type="Theme" uid="uid://us1grle8ks4q" path="res://themes/toggle_button_audio.tres" id="3_quep1"]
 [ext_resource type="Theme" uid="uid://d4mng64fs4ii" path="res://themes/toggle_button.tres" id="5_vvu3o"]
+[ext_resource type="Texture2D" uid="uid://dwk2vihh3gbmt" path="res://game_assets/images/_system/settings_menu_icon.png" id="7_oqehr"]
 
 [node name="Hud_Global" type="CanvasLayer"]
 script = ExtResource("1_svp6v")
 
-[node name="LanguageToggle" type="CheckButton" parent="."]
-offset_left = 30.0
-offset_top = 1742.0
-offset_right = 82.0
-offset_bottom = 1774.0
-scale = Vector2(4.56035, 4.56035)
-theme = ExtResource("5_vvu3o")
+[node name="options_panel" parent="." instance=ExtResource("2_obn1q")]
 
-[node name="Btn_Audio" type="CheckButton" parent="."]
-offset_left = 297.0
-offset_top = 1742.0
-offset_right = 349.0
-offset_bottom = 1774.0
-scale = Vector2(4.56035, 4.56035)
+[node name="LanguageToggle" type="Button" parent="."]
+offset_left = 66.0
+offset_top = 1789.0
+offset_right = 246.0
+offset_bottom = 1869.0
+theme = ExtResource("5_vvu3o")
+toggle_mode = true
+
+[node name="Btn_Audio" type="Button" parent="."]
+offset_left = 279.0
+offset_top = 1789.0
+offset_right = 459.0
+offset_bottom = 1869.0
 theme = ExtResource("3_quep1")
+toggle_mode = true
+
+[node name="Btn_Pause" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 412.0
+offset_top = 835.0
+offset_right = 444.0
+offset_bottom = 867.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_oqehr")

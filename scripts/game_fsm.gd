@@ -45,7 +45,8 @@ func transition_to(new_state: int) -> bool:
 	var old := current
 	current = new_state
 	if _debug:
-		print("🔄 FSM: %s → %s" % [_name(old), _name(new_state)])
+		#print("🔄 FSM: %s → %s" % [_name(old), _name(new_state)])
+		pass
 	state_changed.emit(old, new_state)
 	return true
 

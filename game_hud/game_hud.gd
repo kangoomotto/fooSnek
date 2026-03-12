@@ -53,7 +53,11 @@ func _ready():
 	# Halftime continue button
 	if hud_halftime and hud_halftime.has_node("continue_button"):
 		hud_halftime.continue_button.pressed.connect(_on_halftime_continue)
-
+		
+		# Connect menu's team selections to game_manager
+	if hud_menu:
+		hud_menu.start_game_pressed.connect(_on_start_game_pressed)
+		
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	if $HUD_Menu:
 		$HUD_Menu.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -63,10 +67,18 @@ func _ready():
 		if hud_score:
 			hud_score.visible = true
 	)
+	
 
+func _on_start_game_pressed(mode: String, league: String, team_p1: Dictionary, team_p2: Dictionary) -> void:
+	var gm = get_node_or_null("/root/MAIN/GameManager")
+	if gm:
+		gm.selected_team_id_p1 = team_p1.get("id", "")
+		gm.selected_team_id_p2 = team_p2.get("id", "")
+		gm.current_teams_list = TeamsDB.get_teams_by_league(league)
 		
 func _start_hud_state():
 	_reset_panels()
+	hud_menu.reset_to_main()
 	hud_menu.visible = true  # start menu always on reset
 	hud_score.visible = false 
 	

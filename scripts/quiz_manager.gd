@@ -37,7 +37,6 @@ var correct_answer_id: String = ""
 @onready var frame_category: TextureRect = $frame_image
 @onready var bg_texture: TextureRect = $bg_texture
 @onready var strip_slot: TextureRect = $strip_slot
-
 @onready var language_manager := get_node("/root/LanguageManager")
 
 # =========================================================
@@ -206,21 +205,21 @@ func display_question(slot_info: Dictionary):
 # 🔹 VISUAL LOADING
 # =========================================================
 func _load_question_visuals(question_data: Dictionary, slot_data: Dictionary):
-	var answer_path = question_data.get("answer_image", "")
+	var category_id = question_data.get("category_id", "")
+	var answer_path = questions_db.get_random_image_for_category(category_id)
+	#print("🖼️ category_id: ", category_id, " | answer_path: ", answer_path)
 	answer_image.texture = (
 		load(answer_path)
-		if ResourceLoader.exists(answer_path)
+		if answer_path != ""
 		else preload("res://game_assets/images/defaults/default_answer.png")
 	)
 	answer_image.visible = true
 
 	frame_category.texture = preload("res://game_assets/images/defaults/default_frame.png")
-
 	label_slot.text = slot_data.get(
 		"label",
 		slot_data.get("type", "GENERIC").capitalize()
 	)
-
 	var image_pool = slot_data.get("image_pool", [])
 	slot_badge.texture = (
 		load(image_pool[0])
@@ -248,19 +247,8 @@ func show_feedback(correct: bool) -> void:
 
 	feedback_label.set_meta("lang_key_base", "Correct!" if correct else "Incorrect!")
 	feedback_label.text = _localize(feedback_label.get_meta("lang_key_base"))
+	answer_image.modulate = Color(1, 0.3, 0.3) if not correct else Color(1, 1, 1)
 
-	var chosen_path: String = question_data.get("answer_image", "")
-	if not correct and slot_data.has("image_pool"):
-		for p in slot_data["image_pool"]:
-			if p.findn("miss") >= 0:
-				chosen_path = p
-				break
-
-	answer_image.texture = (
-		load(chosen_path)
-		if ResourceLoader.exists(chosen_path)
-		else preload("res://game_assets/images/defaults/default_answer.png")
-	)
 
 # =========================================================
 # 🔹 CLOSE QUIZ

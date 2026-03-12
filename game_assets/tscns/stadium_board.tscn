@@ -268,6 +268,8 @@ metadata/trigger_quiz = false
 
 [node name="playerChipCyan" parent="." instance=ExtResource("4_sek8t")]
 position = Vector2(555, 1616)
+scale = Vector2(1.5, 1.5)
 
 [node name="playerChipPink" parent="." instance=ExtResource("2_y8ho8")]
 position = Vector2(555, 1616)
+scale = Vector2(1.5, 1.5)

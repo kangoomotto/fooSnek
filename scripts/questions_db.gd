@@ -5,8 +5,10 @@ var questions_by_category: Dictionary = {}
 var remaining_questions: Dictionary = {}
 var cached_question: Dictionary = {}
 var _current_language: String = ""
-
 var translations_for_current_language: Dictionary = {}
+var category_image_pools: Dictionary = {}
+const CATEGORY_IMAGE_BASE := "res://game_assets/images/question_cards/"
+const MAX_IMAGES_PER_CATEGORY := 20  # designers can add up to this many
 
 func _ready():
 	LanguageManager.language_changed.connect(_on_language_changed)
@@ -14,6 +16,29 @@ func _ready():
 	reset_remaining_pools()
 	preload_next_question()
 
+# Image pool per category — scanned once at startup
+func _build_category_image_pools() -> void:
+	for category_id in questions_by_category.keys():
+		var pool: Array = []
+		for i in range(1, MAX_IMAGES_PER_CATEGORY + 1):
+			var path := "%s%s/answer_%02d.png" % [CATEGORY_IMAGE_BASE, category_id, i]
+			#print(path)
+			if ResourceLoader.exists(path):
+				pool.append(path)
+			else:
+				break  # stop at first gap
+		category_image_pools[category_id] = pool
+		#print("📦 category: ", category_id, " | pool size: ", pool.size(), " | pool: ", pool)
+
+		if pool.is_empty():
+			push_warning("⚠ No answer images found for category: " + category_id)
+
+func get_random_image_for_category(category_id: String) -> String:
+	var pool: Array = category_image_pools.get(category_id, [])
+	if pool.is_empty():
+		return ""
+	return pool.pick_random()
+	
 # =========================================================
 # 🔹 LANGUAGE
 # =========================================================
@@ -61,6 +86,7 @@ func _load_questions_for_current_language() -> void:
 
 	questions_by_category = validated
 	_update_translations_cache()
+	_build_category_image_pools()
 
 # =========================================================
 # 🔹 TRANSLATIONS CACHE

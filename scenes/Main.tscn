@@ -16,8 +16,18 @@ script = ExtResource("1_6r6rf")
 [node name="GameManager" type="Node2D" parent="."]
 position = Vector2(3, 0)
 script = ExtResource("2_uto3c")
-force_dice = 3
-POPUPS_ENABLED = false
+force_dice = 12
+DEBUG_SKIP_MENUS = true
+POPUP_VISUAL_FEEDBACK = {
+"corner": false,
+"goal": true,
+"kick": false,
+"ladder": false,
+"penalty": false,
+"red": true,
+"snake": false,
+"yellow": true
+}
 
 [node name="BoardManager" type="Node2D" parent="."]
 unique_name_in_owner = true

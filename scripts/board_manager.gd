@@ -17,7 +17,7 @@ const DEFAULT_OUTCOME := {
 	"popup_type": "",
 	"blocking": false,
 	"is_goal": false,
-	"move_duration": 0.3
+	"move_duration": 1 #DEFAULT firetrial speed
 }
 
 # =========================================================
@@ -29,7 +29,7 @@ var slot_data: Dictionary = {}
 
 # Runtime settings
 var _popup_visual_feedback: Dictionary = {}
-const SlotsData = preload("res://game_hud/slots_data.gd")
+const SlotsData = preload("res://scripts/slots_data.gd")
 
 # =========================================================
 # 🔹 READY
@@ -99,7 +99,6 @@ func _collect_slots(layout: Node2D) -> void:
 		slot_data[i] = data
 		
 	#_print_board_layout() 
-	EventsBus.board_ready.emit()
 
 # =========================================================
 # 🔹 PUBLIC GETTERS

@@ -54,7 +54,7 @@ var selected_court: Dictionary = {}
 
 # Frame guard to prevent duplicate advances in the same frame
 var _last_advance_frame: int = 0
-
+var _popup_timeout_timer: SceneTreeTimer = null
 # =========================================================
 # 🔹 NODE REFERENCES
 # =========================================================
@@ -80,7 +80,7 @@ var _last_advance_frame: int = 0
 	"snake": true,
 	"kick": true,
 	"corner": true,
-	"penalty": true,
+	"penalty": true
 }
 
 # =========================================================
@@ -173,6 +173,7 @@ func _setup_fsm() -> void:
 	fsm.define(GameState.AWAITING_ROLL, GameState.SHOWING_WINNER)
 	fsm.define(GameState.SHOWING_HALFTIME, GameState.AWAITING_ROLL)
 	fsm.define(GameState.SHOWING_WINNER, GameState.START_MENU)
+	fsm.define(GameState.SHOWING_WINNER, GameState.AWAITING_ROLL)
 
 	# Pause from any active gameplay state
 	var pausable := [
@@ -185,6 +186,8 @@ func _setup_fsm() -> void:
 	]
 	for state in pausable:
 		fsm.define(state, GameState.GAME_PAUSED)
+		fsm.define(state, GameState.SHOWING_HALFTIME)
+		fsm.define(state, GameState.SHOWING_WINNER)
 
 	# Resume + bail-out paths
 	fsm.define(GameState.GAME_PAUSED, GameState.AWAITING_ROLL)
@@ -260,9 +263,8 @@ func _on_resume_pressed() -> void:
 # =========================================================
 func _reset_chips():
 	for chip in chips:
-		chip.apply_visual_state()
+		chip.chip_current_box = 0
 		chip.score = 0
-		chip.return_to_start("punish")
 		var trail_color: Color = Color8(0, 255, 255) if chip.chip_owner == 0 else Color8(255, 105, 180)
 		var fire_trail = chip.get_node("FireTrail/TrailLine") as Line2D
 		if fire_trail:
@@ -302,15 +304,18 @@ func _on_start_pressed() -> void:
 	if selected_court.is_empty():
 		selected_court = CourtsDB.get_court_by_id("stadium")
 	EventsBus.court_selected.emit(selected_court)
+	EventsBus.popup_visual_feedback.emit(POPUP_VISUAL_FEEDBACK)
 	_assign_chip_team_data(current_teams_list)
 
 func _on_play_again_pressed():
 	_resetGame()
-	EventsBus.hud_reset_requested.emit()
+	#EventsBus.hud_reset_requested.emit()
 	var audio_brain := get_node_or_null("/root/AudioBrain")
 	if audio_brain:
-		audio_brain._pause_ambience()
-	_change_state(GameState.START_MENU)
+		audio_brain._resume_ambience()
+	EventsBus.hud_reset_requested.emit()
+	EventsBus.start_pressed.emit()
+	_on_start_pressed()
 
 func _on_main_menu() -> void:
 	get_tree().paused = true
@@ -333,7 +338,13 @@ func _resetGame() -> void:
 	last_slot_result.clear()
 	current_turn = 0
 	current_chip = chips[current_turn]
-	_reset_chips()
+
+	# Only animate if board is ready (not first startup)
+	for chip in chips:
+		chip.chip_current_box = 0
+		chip.score = 0
+		chip.apply_visual_state()
+	
 	_highlight_active_player(current_turn)
 	for i in range(chips.size()):
 		chips[i].score = 0
@@ -367,34 +378,39 @@ func _next_turn():
 
 func _advance_turn_flow(source: String) -> void:
 	if DEBUG_MODE:
-		print("🔀 [TURN] _advance_turn_flow | source: ", source)
+		pass
+		#print("🔀 [TURN] _advance_turn_flow | source: ", source)
 
 	# Frame guard — prevent double-advances in the same frame
 	var current_frame = Engine.get_process_frames()
 	if current_frame == _last_advance_frame:
 		if DEBUG_MODE:
-			print("⚠️ [TURN] Blocking duplicate advance in same frame | source: ", source)
+			pass
+			#print("⚠️ [TURN] Blocking duplicate advance in same frame | source: ", source)
 		return
 	_last_advance_frame = current_frame
 
 	# Never advance while a popup is pending
 	if waiting_for_blocking_popup:
 		if DEBUG_MODE:
-			print("⏸️ [TURN] Blocked by popup | source: ", source)
+			pass
+			#print("⏸️ [TURN] Blocked by popup | source: ", source)
 		return
 
 	# Extra turn: only on correct punish cards (yellow/red)
 	if last_slot_result.get("extra_turn", false):
 		last_slot_result["extra_turn"] = false
 		if DEBUG_MODE:
-			print("🌀 [TURN] Extra turn → Player: ", current_turn)
+			pass
+			#print("🌀 [TURN] Extra turn → Player: ", current_turn)
 		_change_state(GameState.AWAITING_ROLL)
 		_highlight_active_player(current_turn)
 		return
 
 	# Normal turn switch
 	if DEBUG_MODE:
-		print("➡️ [TURN] Switching from player ", current_turn)
+		pass
+		#print("➡️ [TURN] Switching from player ", current_turn)
 	_next_turn()
 
 func _highlight_active_player(player_index: int):
@@ -435,7 +451,8 @@ func _resolve_dice_movement(chip: Node2D, roll_value: int) -> void:
 	var raw_target = start_index + roll_value
 	var final_index = min(raw_target, 30)
 	if DEBUG_MODE:
-		print("🎲 [MOVE] Player ", chip.chip_owner, " rolling ", roll_value, " → index ", final_index)
+		pass
+		#print("🎲 [MOVE] Player ", chip.chip_owner, " rolling ", roll_value, " → index ", final_index)
 	await chip.move_to_index(final_index)
 
 func _translate_overshoot_index(ghost_index: int) -> int:
@@ -567,9 +584,8 @@ func _handle_punish_outcome(chip: Node2D, outcome: Dictionary) -> void:
 	_apply_score(chip, outcome)
 	
 	_show_blocking_popup(popup_type, chip.global_position, is_correct, outcome, func():
-		await chip.move_to_index(0, move_speed)
+		await chip.move_to_index(0, move_speed, false)
 		chip.chip_current_box = 0
-		#_apply_score(chip, outcome) # NO _apply_score here — already applied above
 	)
 
 # =========================================================
@@ -642,13 +658,13 @@ func _show_blocking_popup(
 	waiting_for_blocking_popup = true
 	_change_state(GameState.POPUP)
 	EventsBus.show_popup.emit(popup_type, position, is_correct, outcome)
+	_popup_timeout_timer = get_tree().create_timer(POPUP_SAFETY_TIMEOUT)
+	_popup_timeout_timer.timeout.connect(_force_popup_timeout, CONNECT_ONE_SHOT)
 
-	# Safety net: force-unblock if popup never responds
-	get_tree().create_timer(POPUP_SAFETY_TIMEOUT).timeout.connect(func():
-		if waiting_for_blocking_popup:
-			push_warning("⚠️ Popup safety timeout fired — forcing turn advance")
-			_on_popup_animation_done()
-	, CONNECT_ONE_SHOT)
+func _force_popup_timeout() -> void:
+	if waiting_for_blocking_popup:
+		push_warning("⚠️ Popup safety timeout fired — forcing turn advance")
+		_on_popup_animation_done()
 
 # =========================================================
 # 🔹 POPUP ANIMATION DONE — CENTRAL TURN ADVANCE
@@ -705,7 +721,7 @@ func _on_state_changed(_old_state: int, new_state: int) -> void:
 		call_deferred("_check_time_panels_idle")
 
 func _check_time_panels_idle():
-	if waiting_for_blocking_popup or panel_shown or pending_panel == PanelPending.NONE or current_state != GameState.AWAITING_ROLL:
+	if waiting_for_blocking_popup or panel_shown or pending_panel == PanelPending.NONE:
 		return
 	match pending_panel:
 		PanelPending.HALFTIME:
@@ -756,13 +772,15 @@ func _auto_roll_for_cpu() -> void:
 	# Final safety: still CPU's turn and in the right state?
 	if is_cpu_turn() and current_state == GameState.AWAITING_ROLL and not waiting_for_blocking_popup:
 		if DEBUG_MODE:
-			print("🧠 CPU auto-roll triggered")
+			pass
+			#print("🧠 CPU auto-roll triggered")
 		EventsBus.request_dice_roll.emit()
 
 func _evaluate_cpu_prize_success() -> bool:
 	var success = randf() <= cpu_difficulty
 	if DEBUG_MODE:
-		print("🎁 CPU prize roll → difficulty:", cpu_difficulty, "| success:", success)
+		pass
+		#print("🎁 CPU prize roll → difficulty:", cpu_difficulty, "| success:", success)
 	return success
 
 # =========================================================
@@ -828,6 +846,9 @@ func _input(event: InputEvent) -> void:
 		if event.keycode == KEY_P:
 			POPUPS_ENABLED = not POPUPS_ENABLED
 			print("🔇 POPUPS_ENABLED: ", POPUPS_ENABLED)
+			var pm = get_node_or_null("/root/MAIN/PopupManager")
+			if pm:
+				pm._popups_enabled = POPUPS_ENABLED
 
 func _process(_delta: float) -> void:
 	# Debug score override removed — it fights with actual game logic.

@@ -1,3 +1,4 @@
+# res://scripts/language_manager.gd
 extends Node
 
 signal language_changed(language_code: String)

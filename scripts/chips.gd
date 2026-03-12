@@ -80,6 +80,7 @@ func _ready() -> void:
 
 		
 func _on_board_ready() -> void:
+	print("🔍 Chip ", chip_owner, " _on_board_ready | box: ", chip_current_box)
 	apply_visual_state()
 
 func _get_visual_offset() -> Vector2:
@@ -96,6 +97,9 @@ func _on_active_player_changed(active_player_index: int) -> void:
 
 func apply_visual_state() -> void:
 	var bm := get_tree().get_root().get_node("/root/MAIN/BoardManager")
+	var pos = bm.get_box_position(chip_current_box)
+	#print("🔍 Chip ", chip_owner, " apply_visual_state | box: ", chip_current_box, " | pos: ", pos)
+
 	position = bm.get_box_position(chip_current_box) + _get_visual_offset()
 
 # =========================================================
@@ -106,7 +110,7 @@ func apply_visual_state() -> void:
 # while loop that checks the current box, as that was
 # causing it to move backwards on overshoots.
 # =========================================================
-func move_to_index(target_index: int, duration := 0.3) -> void:
+func move_to_index(target_index: int, duration := 0.3, emit_finished := true) -> void:
 	#func move_to_index(target_index: int, duration := 0.3, emit_finished := true) -> void:
 	
 	var steps_to_take = target_index - chip_current_box
@@ -124,10 +128,10 @@ func move_to_index(target_index: int, duration := 0.3) -> void:
 			EventsBus.request_popup_sfx.emit("move")
 			await move_to_box(chip_current_box, duration)
 
-	EventsBus.chip_move_finished.emit(chip_owner, chip_current_box)
-	#if emit_finished:
-		#EventsBus.chip_move_finished.emit(chip_owner, chip_current_box)
-
+	if emit_finished:
+		EventsBus.chip_move_finished.emit(chip_owner, chip_current_box)
+		
+		
 # =========================================================
 # 🔹 MOVE TO SINGLE BOX (CLEAN VERSION)
 # ---------------------------------------------------------
@@ -178,7 +182,7 @@ func return_to_start(reason := "default") -> void:
 	if reason == "punish":
 		# Fast backward hop
 		for i in range(chip_current_box - 1, -1, -1):
-			await move_to_index(i, 0.1)
+			await move_to_index(i, 0.1, false)
 	else:
 		# Smooth full jump
 		await jump_to_index(0)

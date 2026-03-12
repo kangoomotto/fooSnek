@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://d14tvpl4sar43"]
+[gd_scene load_steps=15 format=3 uid="uid://d14tvpl4sar43"]
 
 [ext_resource type="Script" uid="uid://caiv38bbsadnh" path="res://3d_dice/script/dice_box.gd" id="1_1kefr"]
 [ext_resource type="PackedScene" uid="uid://dj37x3gdeqmrk" path="res://3d_dice/Dice3D.tscn" id="2_pwcq2"]
+[ext_resource type="FontFile" uid="uid://lqwafeu2v2qu" path="res://game_assets/fonts/PixeloidSans-Bold.ttf" id="3_40yec"]
 [ext_resource type="Shader" uid="uid://6f13f17oj7mb" path="res://3d_dice/materials/DiceBoxFloor.gdshader" id="3_woadr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fcnsl"]
@@ -66,11 +67,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
 physics_material_override = SubResource("PhysicsMaterial_fcnsl")
 
 [node name="Result_Label" type="Label" parent="."]
-offset_left = 638.0
-offset_top = 1671.0
-offset_right = 764.0
-offset_bottom = 1746.0
+offset_left = 770.0
+offset_top = 1630.0
+offset_right = 830.0
+offset_bottom = 1672.0
 scale = Vector2(3.33558, 3.16398)
+theme_override_fonts/font = ExtResource("3_40yec")
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1

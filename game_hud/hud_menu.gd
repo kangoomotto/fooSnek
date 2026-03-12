@@ -52,6 +52,22 @@ func _ready():
 	# Inicializa idioma
 	_update_language_ui(LanguageManager.get_language())
 
+	## Make containers expand vertically for centering
+	#scroll_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	#var margin_container = scroll_container.get_node("MarginContainer")
+	#if margin_container:
+		#margin_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	#
+		## Configure GridContainer to center content vertically
+	#grid.size_flags_vertical = Control.SIZE_EXPAND_FILL
+
+func reset_to_main() -> void:
+	selected_mode = ""
+	selected_league = ""
+	selected_team_p1 = {}
+	selected_team_p2 = {}
+	_show_main_menu()
+	
 # =========================================================
 # 🔹 ACTION BUTTON (CENTRALIZADO)
 # =========================================================
@@ -83,7 +99,7 @@ func _create_buttons(labels: Array, callbacks: Array, teams_data: Array = []):
 
 		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		btn.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-		btn.custom_minimum_size = Vector2(600, 250) if current_step == MenuStep.TEAMS else Vector2(600, 200)
+		btn.custom_minimum_size = Vector2(600, 200) if current_step == MenuStep.TEAMS else Vector2(600, 300)
 
 		# Icono del equipo
 		if btn.has_node("shield_icon"):
@@ -162,7 +178,7 @@ func _handle_start_press():
 # bypassing all intermediate menus.
 # =========================================================
 func _debug_start_instant():
-	print("🚀 [DEBUG] Starting game with instant defaults.")
+	#print("🚀 [DEBUG] Starting game with instant defaults.")
 	
 	# Set default selections
 	selected_mode = "cpu"
@@ -288,7 +304,10 @@ func _gui_input(event):
 
 func _update_scroll_state():
 	scroll_container.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO if current_step == MenuStep.TEAMS else ScrollContainer.SCROLL_MODE_DISABLED
+	
 	if current_step != MenuStep.TEAMS:
+		grid.custom_minimum_size.y = 0  # Remove fixed height
+		#grid.alignment = GridContainer.ALIGNMENT_CENTER  # Center content vertically
 		scroll_container.scroll_vertical = 0
 
 # =========================================================
